@@ -1,0 +1,84 @@
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #1E3A8A;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1E3A8A;
+  padding: 15px 30px;
+  color: white;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.hero-section {
+  background-color: #e0ecff;
+  padding: 50px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-text h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.hero-text h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid #1E3A8A;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.about-section,
+.contact-section {
+  background-color: #f4f8ff;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.listings-section {
+  padding: 40px 30px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.listings-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.listing-card {
+  width: 180px;
+  height: 60px;
+  background-color: #f0f4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1E3A8A;
+  border-radius: 8px;
+}
