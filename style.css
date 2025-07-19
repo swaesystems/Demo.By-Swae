@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+.hero {
+  background: url('hero.jpg') center/cover no-repeat;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 250px;
+  transition: transform 0.3s ease;
+  background: #f9f9f9;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.testimonials {
+  background: #f2f2f2;
+}
+
+.testimonial {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.contact button {
+  padding: 10px 20px;
+  background: navy;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
