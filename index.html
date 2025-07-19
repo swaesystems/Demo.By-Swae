@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Eliyahou | California Luxury Realtor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Daniel Eliyahou</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#listings">Listings</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <header class="hero">
+    <div class="overlay">
+      <h1>Luxury California Real Estate</h1>
+      <p>Presented by Daniel Eliyahou – Experience. Trust. Results.</p>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="container fade-in">
+      <img src="daniel-profile.png" alt="Daniel" class="profile" />
+      <div class="bio">
+        <h2>Meet Daniel</h2>
+        <p>Daniel Eliyahou is one of California’s leading realtors, delivering elite-level service with unmatched results. He specializes in high-end properties for discerning clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="listings fade-in" id="listings">
+    <h2>Featured Listings</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="listing1.jpg" alt="Listing 1" />
+        <h3>Modern Mansion</h3>
+        <p>Smart home features, panoramic views, private gate.</p>
+      </div>
+      <div class="card">
+        <img src="listing2.jpg" alt="Listing 2" />
+        <h3>Beachfront Villa</h3>
+        <p>Coastal luxury with private beach access and infinity pool.</p>
+      </div>
+      <div class="card">
+        <img src="listing3.jpg" alt="Listing 3" />
+        <h3>Skyline Penthouse</h3>
+        <p>Downtown high-rise with floor-to-ceiling city views.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials fade-in" id="testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonial-slider">
+      <div class="slide">“Daniel helped us find our dream home in a week. Super professional and sharp.” – Lisa M.</div>
+      <div class="slide">“His attention to detail made the selling process seamless.” – Jason R.</div>
+      <div class="slide">“If you want a true real estate expert, Daniel is your guy.” – Maria P.</div>
+    </div>
+  </section>
+
+  <section class="contact fade-in" id="contact">
+    <h2>Contact Daniel</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Email: <a href="mailto:DanielEliyahou@gmail.com">DanielEliyahou@gmail.com</a> | Phone: <a href="tel:8189837688">(818) 983-7688</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Daniel Eliyahou • Site by Swae Systems</p>
+  </footer>
+
+  <script>
+    // Hamburger Menu
+    function toggleMenu() {
+      const links = document.getElementById("navLinks");
+      links.classList.toggle("show");
+    }
+
+    // Simple slider
+    let current = 0;
+    const slides = document.querySelectorAll(".slide");
+    setInterval(() => {
+      slides.forEach((s, i) => s.style.display = i === current ? "block" : "none");
+      current = (current + 1) % slides.length;
+    }, 3000);
+  </script>
+
+  <!-- Tidio Chatbot -->
+  <script src="//code.tidio.co/d9ilchkqhodybynzgpdfk8nbgjnwznhe.js" async></script>
+</body>
+</html>
