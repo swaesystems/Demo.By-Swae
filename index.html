@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luma Aesthetics | Med Spa Excellence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8fc;
+      color: #2b2b2b;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #fbe4ef, #ffffff);
+      text-align: center;
+      padding: 100px 20px 80px;
+      border-bottom: 2px solid #f2d1e8;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      color: #b3266e;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #555;
+      margin-top: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btn {
+      margin-top: 30px;
+      background-color: #b3266e;
+      color: #fff;
+      padding: 14px 34px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background-color: #9d225e;
+    }
+
+    nav {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      border-bottom: 1px solid #f4d2e2;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #b3266e;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #7c174b;
+    }
+
+    section {
+      padding: 70px 25px;
+      max-width: 1100px;
+      margin: auto;
+      border-bottom: 1px solid #f1c8df;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: #b3266e;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .service-card {
+      flex: 1;
+      min-width: 300px;
+      background: #ffffff;
+      border: 1px solid #f1cde0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .service-card h3 {
+      color: #a32060;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .about {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.7;
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .testimonial {
+      background-color: #fff0f7;
+      border-left: 4px solid #d63384;
+      padding: 20px;
+      margin-top: 20px;
+      font-style: italic;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .testimonial-author {
+      text-align: right;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #b3266e;
+    }
+
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 2px solid #f2d1e8;
+    }
+
+    .footer-note {
+      color: #b3266e;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Luma Aesthetics</h1>
+    <p>Premier Med Spa delivering advanced skin, beauty, and wellness treatments — powered quietly by smart automation to ensure elegance meets efficiency.</p>
+    <button class="hero-btn">Book Your Glow</button>
+  </header>
+
+  <section>
+    <h2>Our Signature Treatments</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>DiamondGlow Facial</h3>
+        <p>Exfoliate, extract, and infuse skin with condition-specific serums. Visible results after one treatment.</p>
+      </div>
+      <div class="service-card">
+        <h3>Morpheus8 RF Skin Tightening</h3>
+        <p>Combines microneedling and radiofrequency to contour face and body. No downtime, maximum impact.</p>
+      </div>
+      <div class="service-card">
+        <h3>Lip Filler Enhancements</h3>
+        <p>Precision-based hyaluronic acid injections to sculpt your perfect pout with a natural finish.</p>
+      </div>
+      <div class="service-card">
+        <h3>IV Therapy Lounge</h3>
+        <p>Replenish from within. Hydration, immunity, beauty blends & more in our luxurious IV drip lounge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who We Are</h2>
+    <p class="about">
+      Located in the heart of Beverly Hills, Luma Aesthetics is a sanctuary for those seeking elevated, evidence-based aesthetic care. Our practitioners blend advanced technologies with a personalized touch — empowering each guest to walk away glowing with confidence. Whether you're new to aesthetics or a regular in the world of facials and injectables, our goal is to provide unmatched results while delivering an unforgettable luxury experience.
+    </p>
+  </section>
+
+  <section>
+    <h2>What Clients Are Saying</h2>
+    <div class="testimonial">
+      “I've never felt so taken care of. The entire experience from booking to post-treatment was seamless and luxurious.”
+      <div class="testimonial-author">– Amanda R., West Hollywood</div>
+    </div>
+    <div class="testimonial">
+      “Their AI system replied to my questions instantly and helped me schedule everything perfectly. I didn’t even realize it wasn’t a human!”
+      <div class="testimonial-author">– Lindsey T., Brentwood</div>
+    </div>
+  </section>
+
+  <footer>
+    Demo website built for client presentation purposes only.<br />
+    <span class="footer-note">Powered by Swae Systems</span>
+  </footer>
+
+</body>
+</html>
