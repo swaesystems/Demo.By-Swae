@@ -12,6 +12,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f7f9fc;
@@ -79,9 +83,48 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .feature-card {
+      flex: 1 1 45%;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .feature-card {
+        flex: 1 1 100%;
+      }
+
+      .cta-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
-
 <body>
 
   <!-- Hero Section -->
@@ -90,52 +133,53 @@
     <p>Streamline client intake, follow-ups, and lead tracking with intelligent automations — no extra staff required.</p>
     <a href="#demo" class="cta-button">See the System in Action</a>
   </header>
-  <!-- Problems & Benefits Section -->
+    <!-- Problems & Benefits Section -->
   <section>
     <h2 class="section-title">The Problem</h2>
     <p class="section-subtitle">
-      Medical billing teams lose hours every week to manual client intake, missed follow-ups, and outdated spreadsheets.
+      Medical billing firms lose hours every week chasing clients, processing intake manually, and handling follow-ups with outdated tools.
     </p>
-    <h2 class="section-title" style="margin-top: 60px;">The AI-Powered Solution</h2>
+
+    <h2 class="section-title" style="margin-top: 60px;">The AI Solution</h2>
     <p class="section-subtitle">
-      Swae Systems uses automation to streamline your backend — giving you more time, faster responses, and zero lead loss.
+      Swae Systems automates your lead intake, FAQs, follow-ups, and CRM updates — so you can focus on billing, not babysitting tasks.
     </p>
   </section>
 
-  <!-- Feature Cards -->
+  <!-- Feature Cards Section -->
   <section>
-    <h2 class="section-title">What’s Included</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-      <div style="flex: 1 1 45%; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
-        <h3 style="margin-bottom: 10px;">🤖 AI Chatbot (Tidio)</h3>
-        <p>Answers FAQs, handles basic client intake, and captures leads 24/7 on your site. Fully customizable to your workflow.</p>
+    <h2 class="section-title">Included AI Systems</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>🤖 AI Chatbot (Tidio)</h3>
+        <p>Auto-respond to leads 24/7, capture intake info, and guide prospects with zero manual effort.</p>
       </div>
-      <div style="flex: 1 1 45%; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
-        <h3 style="margin-bottom: 10px;">📋 Smart Intake Form</h3>
-        <p>Collect client information and route it directly into your CRM or spreadsheet — automatically and instantly.</p>
+      <div class="feature-card">
+        <h3>📋 Smart Intake Form</h3>
+        <p>Clients fill a clean form → their data is instantly routed to your Google Sheets or Notion CRM.</p>
       </div>
-      <div style="flex: 1 1 45%; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
-        <h3 style="margin-bottom: 10px;">📩 Automated Follow-Ups</h3>
-        <p>Send personalized follow-up emails or texts if a lead goes cold — no manual work required.</p>
+      <div class="feature-card">
+        <h3>📩 Automated Follow-Ups</h3>
+        <p>Set up email/SMS reminders if a lead doesn’t reply — all handled with simple logic flows.</p>
       </div>
-      <div style="flex: 1 1 45%; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
-        <h3 style="margin-bottom: 10px;">📊 CRM Sync & Notifications</h3>
-        <p>Sync new leads into your system instantly and get notified the moment someone fills out a form or chats with your bot.</p>
+      <div class="feature-card">
+        <h3>📊 CRM & Notifications</h3>
+        <p>Every chat or form submission gets synced instantly to your system and sends you alerts.</p>
       </div>
     </div>
   </section>
 
-  <!-- Embedded Intake Form -->
+  <!-- Live Intake Form Embed -->
   <section id="demo">
     <h2 class="section-title">Live Client Intake Preview</h2>
-    <p class="section-subtitle">Try it below — all form data is routed and stored automatically using Google Sheets, Notion, or your CRM.</p>
+    <p class="section-subtitle">Try it below — this simulates what your clients will fill out on your website. Data routes instantly into your CRM.</p>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJ3cBPybGb8uXUdGSC4bp5zKj-cgBEEH-QvC8M0az7hEtmDQ/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </section>
-  <!-- Final CTA Section -->
+    <!-- Final CTA Section -->
   <section style="background: #1e3b64; color: white; text-align: center; padding: 80px 20px;">
     <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Ready to Automate Your Billing Flow?</h2>
     <p style="font-size: 1.1rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-      Book a custom demo or connect with us to see how we can tailor AI to your billing workflow and client flow.
+      Book a custom demo or connect with us to see how we can tailor AI to your billing workflow and client experience.
     </p>
     <a href="#demo" class="cta-button" style="background: white; color: #1e3b64; border-radius: 6px;">Book a Demo</a>
   </section>
@@ -143,11 +187,11 @@
   <!-- Footer -->
   <footer style="background: #0f1c2e; color: white; text-align: center; padding: 40px 20px;">
     <p style="font-size: 0.95rem;">&copy; 2025 Swae Systems. All rights reserved.</p>
-    <p style="margin-top: 10px; font-size: 0.9rem;">Built for medical billing innovators ready to scale with automation.</p>
+    <p style="margin-top: 10px; font-size: 0.9rem;">Built for modern medical billing firms ready to scale with automation.</p>
   </footer>
 
   <!-- Tidio Chatbot Placeholder -->
-  <!-- Replace the script below with your actual Tidio embed when ready -->
+  <!-- Replace with your real Tidio code below -->
   <script src="//code.tidio.co/your-placeholder-code.js" async></script>
 
 </body>
