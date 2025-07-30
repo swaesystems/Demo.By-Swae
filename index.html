@@ -3,196 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Swae Systems | AI for Medical Billing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Swae Systems | Medical Billing Automation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7f9fc;
-      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fb;
+      color: #222;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(to right, #0f1c2e, #1e3b64);
-      color: white;
-      padding: 80px 20px 100px;
+      background: url('medical-hero.PNG') center/cover no-repeat;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+      z-index: 2;
+      font-size: 3rem;
+      max-width: 800px;
     }
 
     header p {
-      font-size: 1.2rem;
-      font-weight: 300;
+      z-index: 2;
+      font-size: 1.25rem;
+      margin: 20px 0;
       max-width: 600px;
-      margin: 0 auto 30px;
-      opacity: 0.9;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 14px 28px;
+    .cta-btn {
+      z-index: 2;
+      padding: 12px 30px;
+      background: #4B8DF8;
+      color: white;
       font-size: 1rem;
-      background-color: #ffffff;
-      color: #0f1c2e;
-      border-radius: 6px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #2f6fe2;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
       text-decoration: none;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: color 0.3s;
     }
 
-    .cta-button:hover {
-      background-color: #e5ecf5;
+    nav a:hover {
+      color: #f0f0f0;
     }
 
     section {
-      padding: 80px 20px;
-      max-width: 1100px;
+      padding: 60px 20px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .section-title {
       font-size: 2rem;
-      font-weight: 600;
       margin-bottom: 20px;
       text-align: center;
-      color: #1a1a1a;
     }
 
-    .section-subtitle {
-      font-size: 1rem;
-      text-align: center;
-      color: #444;
-      margin-bottom: 50px;
-      max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .feature-card {
-      flex: 1 1 45%;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    }
-
-    .feature-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .feature-card p {
-      font-size: 0.95rem;
-      color: #333;
+    .highlight {
+      color: #4B8DF8;
+      font-weight: 700;
     }
 
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        padding: 0 20px;
       }
 
-      .feature-card {
-        flex: 1 1 100%;
-      }
-
-      .cta-button {
-        padding: 12px 20px;
-        font-size: 0.95rem;
+      nav {
+        gap: 20px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
   <header>
-    <h1>Automate Your Medical Billing Operations with AI</h1>
-    <p>Streamline client intake, follow-ups, and lead tracking with intelligent automations — no extra staff required.</p>
-    <a href="#demo" class="cta-button">See the System in Action</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#quote">Get Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <h1>Automate Your Medical Billing Process with <span class="highlight">AI-Powered Tools</span></h1>
+    <p>Save time, reduce human error, and scale your client base with intelligent systems built for billing firms.</p>
+    <a href="#quote" class="cta-btn">Book Demo</a>
   </header>
-    <!-- Problems & Benefits Section -->
-  <section>
-    <h2 class="section-title">The Problem</h2>
-    <p class="section-subtitle">
-      Medical billing firms lose hours every week chasing clients, processing intake manually, and handling follow-ups with outdated tools.
-    </p>
-
-    <h2 class="section-title" style="margin-top: 60px;">The AI Solution</h2>
-    <p class="section-subtitle">
-      Swae Systems automates your lead intake, FAQs, follow-ups, and CRM updates — so you can focus on billing, not babysitting tasks.
-    </p>
-  </section>
-
-  <!-- Feature Cards Section -->
-  <section>
-    <h2 class="section-title">Included AI Systems</h2>
-    <div class="features">
-      <div class="feature-card">
-        <h3>🤖 AI Chatbot (Tidio)</h3>
-        <p>Auto-respond to leads 24/7, capture intake info, and guide prospects with zero manual effort.</p>
+  <section id="features">
+    <h2 class="section-title">4 Powerful AI Systems for Billing Firms</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; padding: 40px 0;">
+      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <h3 style="color: #4B8DF8;">Lead Intake Bot</h3>
+        <p>Automatically collect client details and sync them to your CRM or email — no more manual onboarding.</p>
       </div>
-      <div class="feature-card">
-        <h3>📋 Smart Intake Form</h3>
-        <p>Clients fill a clean form → their data is instantly routed to your Google Sheets or Notion CRM.</p>
+      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <h3 style="color: #4B8DF8;">CRM Auto-Updater</h3>
+        <p>Keep your pipeline organized by having AI instantly update contact records and task status.</p>
       </div>
-      <div class="feature-card">
-        <h3>📩 Automated Follow-Ups</h3>
-        <p>Set up email/SMS reminders if a lead doesn’t reply — all handled with simple logic flows.</p>
+      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <h3 style="color: #4B8DF8;">Billing Reminders</h3>
+        <p>Send payment reminders, late notices, and follow-ups using automated logic — set it and forget it.</p>
       </div>
-      <div class="feature-card">
-        <h3>📊 CRM & Notifications</h3>
-        <p>Every chat or form submission gets synced instantly to your system and sends you alerts.</p>
+      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <h3 style="color: #4B8DF8;">AI Follow-Up Messenger</h3>
+        <p>Smart follow-up sequences via SMS or email that boost conversion and reduce missed opportunities.</p>
       </div>
     </div>
   </section>
 
-  <!-- Live Intake Form Embed -->
-  <section id="demo">
-    <h2 class="section-title">Live Client Intake Preview</h2>
-    <p class="section-subtitle">Try it below — this simulates what your clients will fill out on your website. Data routes instantly into your CRM.</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJ3cBPybGb8uXUdGSC4bp5zKj-cgBEEH-QvC8M0az7hEtmDQ/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </section>
-    <!-- Final CTA Section -->
-  <section style="background: #1e3b64; color: white; text-align: center; padding: 80px 20px;">
-    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Ready to Automate Your Billing Flow?</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-      Book a custom demo or connect with us to see how we can tailor AI to your billing workflow and client experience.
-    </p>
-    <a href="#demo" class="cta-button" style="background: white; color: #1e3b64; border-radius: 6px;">Book a Demo</a>
+  <section id="quote" style="background: #eef3fc; padding: 60px 20px;">
+    <h2 class="section-title">Get a Custom AI Demo</h2>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">Fill out this quick form and we’ll reach out with a personalized demo tailored to your medical billing business.</p>
+    <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 0 auto;">
+      <input type="text" placeholder="Full Name" required style="padding: 12px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="email" placeholder="Email Address" required style="padding: 12px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="text" placeholder="Company Name" style="padding: 12px; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="tel" placeholder="Phone Number" style="padding: 12px; border-radius: 5px; border: 1px solid #ccc;">
+      <textarea placeholder="What would you like to automate?" rows="4" style="grid-column: span 2; padding: 12px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+      <button type="submit" style="grid-column: span 2; background: #4B8DF8; color: white; padding: 14px; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer;">Request Demo</button>
+    </form>
   </section>
 
-  <!-- Footer -->
-  <footer style="background: #0f1c2e; color: white; text-align: center; padding: 40px 20px;">
-    <p style="font-size: 0.95rem;">&copy; 2025 Swae Systems. All rights reserved.</p>
-    <p style="margin-top: 10px; font-size: 0.9rem;">Built for modern medical billing firms ready to scale with automation.</p>
+  <section>
+    <h2 class="section-title">Why Agencies Choose Us</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
+      <div style="background: white; padding: 25px; border-left: 5px solid #4B8DF8;">
+        <h3>Done-for-You Setup</h3>
+        <p>We handle the site, chatbot, automations, and integrations — so you don’t have to.</p>
+      </div>
+      <div style="background: white; padding: 25px; border-left: 5px solid #4B8DF8;">
+        <h3>Zero Learning Curve</h3>
+        <p>No need to train your team — it works in the background while you work on billing.</p>
+      </div>
+      <div style="background: white; padding: 25px; border-left: 5px solid #4B8DF8;">
+        <h3>One-Time Payment</h3>
+        <p>No recurring costs — just a one-time setup and you’re fully automated forever.</p>
+      </div>
+    </div>
+  </section>
+    <section id="testimonials" style="background: #f4f7fe; padding: 60px 20px;">
+    <h2 class="section-title">What Clients Are Saying</h2>
+    <div style="display: flex; overflow-x: auto; gap: 30px; margin-top: 30px; scroll-snap-type: x mandatory;">
+      <div style="min-width: 300px; background: white; padding: 20px; border-radius: 10px; scroll-snap-align: start; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        <p>“Our entire billing system feels 10x more efficient. We’re saving hours every week.”</p>
+        <div style="margin-top: 10px; color: #FFD700;">★★★★★</div>
+      </div>
+      <div style="min-width: 300px; background: white; padding: 20px; border-radius: 10px; scroll-snap-align: start; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        <p>“The AI follow-up bot helped us close 3 new accounts in our first week.”</p>
+        <div style="margin-top: 10px; color: #FFD700;">★★★★★</div>
+      </div>
+      <div style="min-width: 300px; background: white; padding: 20px; border-radius: 10px; scroll-snap-align: start; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        <p>“Didn’t expect to get this much value from a one-time service. Highly recommend.”</p>
+        <div style="margin-top: 10px; color: #FFD700;">★★★★★</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding: 60px 20px;">
+    <h2 class="section-title">Have Questions?</h2>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">Reach out any time and we’ll get back to you within 24 hours. We’re here to help your billing firm scale smarter.</p>
+    <div style="text-align: center;">
+      <a href="mailto:support@swaesystems.com" style="color: #4B8DF8; font-weight: 600; text-decoration: none;">support@swaesystems.com</a>
+    </div>
+  </section>
+
+  <footer style="background: #1b1d22; color: white; text-align: center; padding: 30px 20px;">
+    <p>&copy; 2025 Swae Systems. All rights reserved.</p>
   </footer>
 
   <!-- Tidio Chatbot Placeholder -->
-  <!-- Replace with your real Tidio code below -->
-  <script src="//code.tidio.co/your-placeholder-code.js" async></script>
+  <script>
+    // Paste your real Tidio script here once ready
+  </script>
 
 </body>
 </html>
