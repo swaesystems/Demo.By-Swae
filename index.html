@@ -1,387 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Swae Systems — 24/7 AI Intake & Booking</title>
-  <meta name="description" content="Turn missed calls, texts, and DMs into booked appointments automatically. Concierge-level AI intake, instant replies, fewer no-shows, CRM + calendar sync."/>
-  <meta name="theme-color" content="#0A0A0B"/>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Swae Systems — 24/7 AI Intake & Booking"/>
-  <meta property="og:description" content="Never miss another lead. Instant replies. Booked on your calendar. Seamless CRM sync."/>
-  <meta property="og:image" content="og-image.jpg"/>
-  <meta property="og:type" content="website"/>
-
-  <!-- Tailwind (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: "#0A0A0B",
-            coal: "#0E0F10",
-            gold: "#D4AF37",
-            fog: "#B8BCC4",
-          },
-          boxShadow: {
-            gold: "0 0 0 1px rgba(212,175,55,.35), 0 18px 60px rgba(0,0,0,.45)"
-          },
-          spacing: { '18':'4.5rem' }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    body { background:#0A0A0B; }
-    .grain:before{content:"";position:fixed;inset:0;pointer-events:none;background:url('grain.png');opacity:.06;mix-blend-mode:soft-light}
-    .no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
-    .t-wrap{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-    .t-card{scroll-snap-align:center;min-width:85%}@media(min-width:1024px){.t-card{min-width:45%}}
-    .cta-fab{position:fixed;right:22px;bottom:26px;z-index:60}
-    .cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:50}
-    .fade-up{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-    .fade-up.show{opacity:1;transform:translateY(0)}
-    video::-webkit-media-controls{display:none!important}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Swae Systems — Luxury AI Intake & Booking</title>
+<meta name="description" content="Capture every lead, reply in seconds, and book straight to your calendar — without adding headcount. Concierge-grade AI for real businesses."/>
+<meta name="theme-color" content="#0A0A0B"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://swaesystems.github.io/SwaeSystems/"/>
+<meta property="og:title" content="Swae Systems — Luxury AI Intake & Booking"/>
+<meta property="og:description" content="Concierge-grade AI that turns missed calls & DMs into bookings. Precision only."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://swaesystems.github.io/SwaeSystems/"/>
+<meta property="og:image" content="og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Swae Systems — Luxury AI Intake & Booking"/>
+<meta name="twitter:description" content="Concierge-grade AI that turns missed calls & DMs into bookings. Precision only."/>
+<meta name="twitter:image" content="og.png"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Swae Systems",
+  "url": "https://swaesystems.github.io/SwaeSystems/",
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Swae Systems AI Booking",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "24/7 AI intake and booking system for clinics and high-volume teams."
+}
+</script>
+<link rel="icon" href="favicon.ico"/>
+<style>
+:root{
+  --bg:#0a0a0b; --panel:#121214; --muted:#151517;
+  --text:#e8e8ea; --sub:#a9a9af;
+  --gold:#D7B86A; --gold-deep:#A0782A; --gold-hi:#F4E2A6;
+  --border:rgba(255,255,255,.08);
+  --shadow:0 12px 40px rgba(0,0,0,.45);
+  --r:18px; --gap:16px; --glow:0 0 80px rgba(215,184,106,.15);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:2px solid rgba(215,184,106,.6);outline-offset:3px;border-radius:10px}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold-hi),var(--gold-deep));width:0;z-index:90}
+.loader{position:fixed;inset:0;background:#0a0a0b;display:grid;place-items:center;z-index:100;transition:opacity .4s ease}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:var(--glow);animation:bounce 1s infinite ease-in-out;position:relative}
+.dot::before,.dot::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.dot::before{transform:translateX(-14px)} .dot::after{transform:translateX(14px)}
+@keyframes bounce{0%,80%,100%{transform:scale(.8)}40%{transform:scale(1)}}
+.loader.hide{opacity:0;pointer-events:none}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(10,10,11,.72);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--border)}
+.topbar-inner{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:.3px}
+.brand .accent{color:var(--gold)}
+.burger{display:inline-flex;align-items:center;justify-content:center;width:46px;height:42px;border-radius:12px;background:var(--muted);border:1px solid var(--border);box-shadow:var(--shadow);cursor:pointer}
+.burger i,.burger i::before,.burger i::after{content:"";display:block;width:18px;height:2px;background:var(--text);position:relative;transition:.2s ease}
+.burger i::before{position:absolute;top:-6px}
+.burger i::after{position:absolute;top:6px}
+.burger.is-open i{background:transparent}
+.burger.is-open i::before{top:0;transform:rotate(45deg)}
+.burger.is-open i::after{top:0;transform:rotate(-45deg)}
+.menu{position:fixed;inset:0;background:rgba(10,10,11,.78);backdrop-filter:blur(16px) saturate(140%);z-index:80;display:none}
+.menu.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.menu-inner{max-width:1120px;margin:0 auto;padding:22px 20px}
+.menu-head{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.menu-list{padding:22px 0;display:grid;gap:12px}
+.menu a{display:flex;justify-content:space-between;align-items:center;padding:18px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);opacity:0;transform:translateY(12px);font-weight:600}
+.menu a small{color:var(--sub)}
+.menu a.show{opacity:1;transform:translateY(0);transition:.35s ease}
+.menu a:hover{background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.menu-close{height:38px;padding:0 14px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text)}
+.hero{position:relative;isolation:isolate;min-height:86vh;display:flex;align-items:center;background:#0b0b0d center/cover no-repeat;background-image:image-set(url("hero-bg.JPG") 1x)}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(120% 80% at 80% 0%, rgba(215,184,106,.20), transparent 60%),linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.65) 40%, rgba(0,0,0,.65) 100%);}
+.hero .wrap{position:relative;z-index:1}
+.hero .headline{font-size:clamp(30px,6.2vw,64px);line-height:1.04;letter-spacing:-.6px;margin:0 0 12px;max-width:820px}
+.hero .sub{color:#dbdbdf;max-width:720px;margin-top:12px;font-size:clamp(15px,2.7vw,18.5px);line-height:1.55}
+.hero .btn{margin-top:20px;display:inline-flex;padding:12px 24px;border-radius:12px;background:linear-gradient(180deg, rgba(215,184,106,.26), rgba(160,120,42,.16));border:1px solid rgba(215,184,106,.55);box-shadow:0 0 20px rgba(215,184,106,.15);transition:transform .15s ease,box-shadow .15s ease}
+.hero .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(215,184,106,.2)}
+@media (max-width:820px){.hero{min-height:78vh}}
+section{padding:64px 0}
+@media(min-width:1100px){section{padding:76px 0}}
+.title{font-size:26px;font-weight:800;margin:0 0 16px}
+.kicker{color:var(--sub);margin:0 0 22px}
+.grid-3{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);transform:translateY(8px);opacity:0;transition:transform .6s ease,opacity .6s ease}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--sub);line-height:1.6}
+.card.luxe{border:1px solid rgba(215,184,106,.40);box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 60px rgba(215,184,106,.08)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(215,184,106,.35),transparent);margin:32px 0}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:14px;transform:translateY(8px);opacity:0;transition:transform .6s ease,opacity .6s ease}
+.demo{position:relative;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,rgba(215,184,106,.08),rgba(255,255,255,0));overflow:hidden}
+.demo-inner{position:relative;aspect-ratio:16/9;background:radial-gradient(100% 80% at 50% 0%,rgba(255,255,255,.06),transparent 70%)}
+.demo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.demo .overlay{position:absolute;inset:auto 16px 16px 16px;display:flex;gap:10px;flex-wrap:wrap}
+.demo .overlay .btn{backdrop-filter:blur(6px)}
+.demo-note{color:var(--sub);font-size:13px;margin-top:8px}
+.carousel{position:relative}
+.track{display:flex;gap:var(--gap);overflow:auto scroll;padding:6px;scroll-behavior:smooth;scroll-snap-type:x mandatory}
+.track::-webkit-scrollbar{height:6px}
+.track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:999px}
+.tcard{min-width:300px;max-width:360px;flex:0 0 auto;background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:18px;scroll-snap-align:start;box-shadow:var(--shadow)}
+.stars{letter-spacing:2px;margin-bottom:10px;color:var(--gold)}
+.quote{font-size:15.5px;line-height:1.55}
+.client{margin-top:12px;color:var(--sub);font-size:14px}
+.nav-btn{-webkit-appearance:none;appearance:none;color:#e8e8ea;font-weight:700;line-height:1;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07);width:44px;height:44px;border-radius:12px;cursor:pointer;backdrop-filter:blur(10px)}
+.nav-btn:hover{background:rgba(255,255,255,.12)}
+.nav-btn:focus-visible{outline:2px solid rgba(215,184,106,.6);outline-offset:3px}
+.nav-btn[disabled]{opacity:.35;pointer-events:none;cursor:not-allowed}
+.prev{position:absolute;top:50%;left:-6px;transform:translateY(-50%)}
+.next{position:absolute;top:50%;right:-6px;transform:translateY(-50%)}
+@media(min-width:900px){.prev{left:-14px}.next{right:-14px}}
+.cta{padding:34px;border:1px solid var(--border);border-radius:var(--r);background:linear-gradient(180deg,rgba(215,184,106,.06),rgba(255,255,255,0));display:flex;flex-direction:column;gap:10px}
+.cta h3{margin:0;font-size:20px}
+.cta p{margin:0;color:var(--sub)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.btn.gold{position:relative;overflow:hidden;background:linear-gradient(180deg, rgba(215,184,106,.26), rgba(160,120,42,.16));border-color:rgba(215,184,106,.55);box-shadow:0 0 20px rgba(215,184,106,.15)}
+.btn.gold::after{content:"";position:absolute;inset:0;background:linear-gradient(75deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);transform:translateX(-120%);transition:transform .8s ease}
+.btn.gold:hover::after{transform:translateX(120%)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(215,184,106,.2)}
+.fab{position:fixed;right:18px;bottom:18px;z-index:70;height:52px;padding:0 18px;border-radius:999px;display:flex;align-items:center;gap:10px;color:var(--text);border:1px solid rgba(215,184,106,.45);background:linear-gradient(180deg, rgba(215,184,106,.20), rgba(160,120,42,.12));box-shadow:0 12px 40px rgba(0,0,0,.45), 0 0 60px rgba(215,184,106,.10)}
+.stack{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+footer{padding:36px 0;border-top:1px solid var(--border);color:var(--sub);font-size:14px}
+.table-container{overflow-x:auto}
+.table-container table{width:100%;border-collapse:collapse;margin-top:24px}
+.table-container th,.table-container td{padding:12px;text-align:left;border-bottom:1px solid var(--border)}
+.table-container th{background:var(--panel);font-weight:600}
+.table-container td:first-child{font-weight:600}
+.table-container .highlight{color:var(--gold);font-weight:600}
+@media (prefers-reduced-motion: reduce){.card,.chip,.btn,.menu a,.btn.gold::after{transition:none}.track{scroll-behavior:auto}}
+@media (max-width: 768px){.grid-3{grid-template-columns:1fr}.stack{grid-template-columns:1fr}.chip-row{justify-content:center}.title{font-size:22px}.hero .headline{font-size:40px}.hero .sub{font-size:16px}}
+</style>
 </head>
-<body class="text-white grain">
-
-  <!-- Mobile sticky CTA -->
-  <div class="cta-bar lg:hidden bg-coal/85 backdrop-blur border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-      <a href="#demo" class="flex-1 text-center py-3 rounded-md font-semibold bg-gold text-ink active:opacity-90">Book Demo</a>
-      <button id="openGuideBar" class="px-4 py-3 rounded-md font-semibold border border-white/20 active:opacity-80">Free Guide</button>
+<body>
+<div class="progress" id="progress" role="presentation"></div>
+<div class="loader" id="loader" aria-hidden="true"><div class="dot" aria-hidden="true"></div></div>
+<header class="topbar" role="banner">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="/" aria-label="Swae Systems Home">Swae <span class="accent">Systems</span></a>
+    <button class="burger" id="openMenu" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+  <div class="menu-inner">
+    <div class="menu-head">
+      <strong id="menuTitle">Swae <span class="accent">Systems</span></strong>
+      <button class="menu-close" id="closeMenu" aria-label="Close menu">Close ✕</button>
+    </div>
+    <div class="menu-list" id="menuList">
+      <a href="#compare"><span>Compare Us</span><small>Swae vs Competitors</small></a>
+      <a href="industries.html"><span>Industries</span><small>Where we win</small></a>
+      <a href="cases.html"><span>Case Studies</span><small>Proven results</small></a>
+      <a href="contact.html"><span>Contact</span><small>Book a walkthrough</small></a>
     </div>
   </div>
-
-  <!-- Nav -->
-  <header class="fixed top-0 inset-x-0 z-40">
-    <div class="max-w-6xl mx-auto m-3 rounded-xl bg-coal/55 backdrop-blur border border-white/10 px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#" class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full border border-gold/70 shadow-gold"></div>
-          <span class="tracking-wide font-semibold">Swae <span class="text-gold">Systems</span></span>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
-          <a href="#proof" class="hover:text-white">Results</a>
-          <a href="#how" class="hover:text-white">How it Works</a>
-          <a href="#pricing" class="hover:text-white">Pricing</a>
-          <a href="#faq" class="hover:text-white">FAQ</a>
-          <button id="openGuideTop" class="hover:text-gold">Free Guide</button>
-          <a href="#demo" class="ml-1 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
-        </nav>
-        <button id="burger" class="md:hidden p-3 rounded-lg border border-white/10">
-          <span class="sr-only">Open menu</span>
-          <div class="w-5 h-0.5 bg-white mb-1"></div>
-          <div class="w-5 h-0.5 bg-white mb-1"></div>
-          <div class="w-5 h-0.5 bg-white"></div>
-        </button>
-      </div>
+</div>
+<section class="hero" id="hero" aria-label="Swae Systems">
+  <div class="wrap">
+    <h1 class="headline">Never miss another lead — ever.</h1>
+    <p class="sub">AI answers calls, texts, and DMs in seconds, qualifies, books, and syncs to your CRM.</p>
+    <a class="btn gold" href="contact.html">Book 20-Min Demo</a>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2 class="title">What you get on day one</h2>
+    <p class="kicker">Fast wins without rebuilding your workflow.</p>
+    <div class="grid-3">
+      <div class="card reveal luxe"><h3>Speed-to-lead</h3><p>Replies in seconds. Books in 5 minutes. More revenue.</p></div>
+      <div class="card reveal"><h3>No-show control</h3><p>Smart reminders cut no-shows without spamming.</p></div>
+      <div class="card reveal"><h3>Stack integration</h3><p>Syncs with Google, HubSpot, Square. No new tools.</p></div>
     </div>
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden mx-3 mt-2 rounded-xl bg-coal/95 backdrop-blur border border-white/10">
-      <div class="px-4 py-4 flex flex-col gap-3 text-white/90">
-        <a href="#proof" class="py-2">Results</a>
-        <a href="#how" class="py-2">How it Works</a>
-        <a href="#pricing" class="py-2">Pricing</a>
-        <a href="#faq" class="py-2">FAQ</a>
-        <button id="openGuideMob" class="py-2 text-left">Free Guide</button>
-        <a href="#demo" class="mt-2 inline-flex justify-center items-center px-4 py-3 rounded-md bg-gold text-ink font-semibold">Book Demo</a>
-      </div>
+  </div>
+</section>
+<section id="why-swae">
+  <div class="wrap">
+    <h2 class="title">Why Swae Wins</h2>
+    <p class="kicker">Not a bloated suite or DIY bot. A done-for-you system that books reliably.</p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Swae Systems</th>
+            <th>Big Suites</th>
+            <th>DIY Bots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Time to Launch</td>
+            <td class="highlight">24–48 hours</td>
+            <td>Weeks</td>
+            <td>Minutes (limited)</td>
+          </tr>
+          <tr>
+            <td>Speed-to-Lead</td>
+            <td class="highlight">&lt;5s reply + booking</td>
+            <td>Queues</td>
+            <td>Inconsistent</td>
+          </tr>
+          <tr>
+            <td>Compliance</td>
+            <td class="highlight">HIPAA-aware, encrypted</td>
+            <td>Varies</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Who Does the Work?</td>
+            <td class="highlight">We do</td>
+            <td>You + support</td>
+            <td>You</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </header>
-
-  <!-- HERO: cinematic video -->
-  <section class="relative pt-28 lg:pt-32">
-    <div class="absolute inset-0 -z-10 overflow-hidden rounded-b-[40px] border-b border-white/10">
-      <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="hero-poster.jpg">
-        <source src="hero-video.mp4" type="video/mp4"/>
-      </video>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-ink"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20"></div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-3xl fade-up">
-        <h1 class="text-4xl md:text-6xl font-semibold leading-[1.1]">
-          Turn missed calls & DMs into <span class="text-gold">booked appointments</span>.
-        </h1>
-        <p class="mt-5 text-white/80 max-w-xl">Concierge-level AI that replies in seconds, qualifies, books on your calendar, reduces no-shows, and syncs with your CRM.</p>
-        <div class="mt-7 flex flex-wrap items-center gap-3">
-          <a href="#demo" class="px-6 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
-          <button id="openGuideHero" class="px-6 py-3 rounded-md border border-white/20 hover:border-white/40 active:opacity-80">Download Free Guide</button>
-        </div>
-        <div class="mt-6 flex items-center gap-5 text-sm text-white/70">
-          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> HIPAA-aware workflows</div>
-          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> No-show reduction</div>
-          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> CRM + calendar sync</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof (logos + brief slider) -->
-  <section id="proof" class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid gap-10">
-        <div>
-          <h3 class="text-2xl md:text-3xl font-semibold">Trusted by fast-moving clinics & service teams</h3>
-          <p class="mt-2 text-white/70">Real outcomes, real teams.</p>
-        </div>
-
-        <!-- logos -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-80">
-          <img src="logo-aurora.png" alt="Aurora Clinic" class="h-10 object-contain mx-auto">
-          <img src="logo-vitality.png" alt="Vitality Aesthetics" class="h-10 object-contain mx-auto">
-          <img src="logo-northstar.png" alt="Northstar Wellness" class="h-10 object-contain mx-auto">
-          <img src="logo-peak.png" alt="Peak Dental" class="h-10 object-contain mx-auto">
-        </div>
-
-        <!-- testimonials (lighter, spaced) -->
-        <div class="overflow-x-auto t-wrap no-scrollbar">
-          <div class="flex gap-6">
-            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
-              <div class="text-gold mb-2">★★★★★</div>
-              <blockquote class="text-white/90">“We cut response times from hours to seconds and filled our calendar.”</blockquote>
-              <figcaption class="mt-4 text-white/70 text-sm">Dr. Jane — Miami Med Spa</figcaption>
-            </figure>
-            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
-              <div class="text-gold mb-2">★★★★★</div>
-              <blockquote class="text-white/90">“No-shows dropped and our front desk finally breathes.”</blockquote>
-              <figcaption class="mt-4 text-white/70 text-sm">Ryan P. — Peak Dental</figcaption>
-            </figure>
-            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
-              <div class="text-gold mb-2">★★★★★</div>
-              <blockquote class="text-white/90">“SMS + IG DMs convert now. It feels like a 24/7 concierge.”</blockquote>
-              <figcaption class="mt-4 text-white/70 text-sm">Alyssa — Vitality Aesthetics</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gold-framed DEMO video -->
-  <section class="py-16 lg:py-20 bg-gradient-to-b from-coal/40 to-ink border-y border-white/10">
-    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
-      <div class="fade-up">
-        <h3 class="text-2xl md:text-3xl font-semibold">See a missed call become a booking — in <span class="text-gold">30 seconds</span>.</h3>
-        <p class="mt-3 text-white/80">Real flow: missed call → instant text → Q&A → slot picked → booked on your calendar → reminders.</p>
-        <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
-      </div>
-      <div class="rounded-2xl overflow-hidden border-2 border-gold shadow-gold">
-        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="demo-poster.jpg">
-          <source src="demo-30s.mp4" type="video/mp4"/>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2 class="title">Live Demo Spotlight</h2>
+    <p class="kicker">Missed call → instant textback → booked on your calendar.</p>
+    <div class="demo reveal" id="demoCard">
+      <div class="demo-inner">
+        <video id="demoVideo" autoplay muted playsinline loop poster="demo-poster.jpg" aria-label="Demo video of Swae Systems">
+          <source src="demo.mp4" type="video/mp4" id="demoSrc"/>
         </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it Works (2-col, airy) -->
-  <section id="how" class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-start">
-      <div class="fade-up">
-        <h3 class="text-2xl md:text-3xl font-semibold">From missed call to confirmed booking</h3>
-        <p class="mt-3 text-white/80">Swae engages instantly across phone, SMS, web chat, and DMs. It qualifies, answers FAQs, sends prep instructions, and books directly on your calendar.</p>
-        <ul class="mt-6 space-y-3 text-white/80">
-          <li class="flex gap-3"><span class="text-gold">◆</span> Instant reply on every channel</li>
-          <li class="flex gap-3"><span class="text-gold">◆</span> Smart qualification + intake</li>
-          <li class="flex gap-3"><span class="text-gold">◆</span> Calendar & CRM sync (no double entry)</li>
-          <li class="flex gap-3"><span class="text-gold">◆</span> Automated reminders to reduce no-shows</li>
-        </ul>
-      </div>
-      <div class="bg-black/40 border border-white/10 rounded-2xl p-6 fade-up">
-        <h4 class="text-xl font-semibold">Mini Case — Aurora Clinic</h4>
-        <ul class="mt-4 grid grid-cols-2 gap-4 text-sm">
-          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">+42%</span><span class="text-white/70">Bookings (30d)</span></li>
-          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">-28%</span><span class="text-white/70">No-show rate</span></li>
-          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">2.1s</span><span class="text-white/70">Median reply</span></li>
-          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">14d</span><span class="text-white/70">Time to ROI</span></li>
-        </ul>
-        <p class="mt-3 text-white/60 text-xs">Representative of typical pilot outcomes. Full report on demo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA band (single secondary CTA = Guide) -->
-  <section class="py-14 border-y border-white/10 bg-gradient-to-r from-ink via-coal/40 to-ink">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-6">
-      <h4 class="text-xl md:text-2xl font-semibold">Not ready to book? Start with our 5-step no-show playbook.</h4>
-      <button id="openGuideMid" class="px-6 py-3 rounded-md border border-white/20 hover:border-white/40 active:opacity-80">Download Free Guide</button>
-    </div>
-  </section>
-
-  <!-- Pricing (airier, two cards) -->
-  <section id="pricing" class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto">
-        <h3 class="text-2xl md:text-3xl font-semibold">Simple pricing that scales with you</h3>
-        <p class="mt-3 text-white/70">Fast start now, expand when you’re ready.</p>
-      </div>
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
-        <div class="bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
-          <div class="text-sm uppercase tracking-wide text-white/60">Pilot</div>
-          <div class="mt-2 text-4xl font-semibold">$750<span class="text-xl text-white/60"> setup</span></div>
-          <div class="mt-1 text-white/70">then $200/mo</div>
-          <ul class="mt-5 space-y-2 text-white/80">
-            <li>✓ 24/7 AI intake across SMS, chat & DMs</li>
-            <li>✓ Calendar + CRM sync</li>
-            <li>✓ Reminder flows to cut no-shows</li>
-            <li>✓ HIPAA-aware workflows</li>
-          </ul>
-          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Start Pilot</a>
-        </div>
-        <div class="bg-black/60 border border-gold/40 rounded-2xl p-6 shadow-gold hover:shadow-lg transition">
-          <div class="text-sm uppercase tracking-wide text-gold">Growth</div>
-          <div class="mt-2 text-4xl font-semibold">$1,500<span class="text-xl text-white/60"> setup</span></div>
-          <div class="mt-1 text-white/70">then $300/mo</div>
-          <ul class="mt-5 space-y-2 text-white/80">
-            <li>✓ Everything in Pilot</li>
-            <li>✓ Multi-location routing</li>
-            <li>✓ Custom playbooks & reporting</li>
-            <li>✓ Priority support</li>
-          </ul>
-          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
+        <div class="overlay">
+          <a class="btn gold" href="contact.html">Book a Walkthrough</a>
         </div>
       </div>
-      <p class="mt-6 text-center text-white/60 text-sm">Enterprise or white-label? <a href="#contact" class="underline hover:text-gold">Contact us</a>.</p>
-    </div>
-  </section>
-
-  <!-- FAQ (compact) -->
-  <section id="faq" class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-4 max-w-3xl">
-      <h3 class="text-2xl md:text-3xl font-semibold">FAQ</h3>
-      <div class="mt-6 space-y-4">
-        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-          <summary class="cursor-pointer font-medium">How fast can we go live?</summary>
-          <p class="mt-3 text-white/80">Most pilots go live in a day. We plug into your calendar/CRM, import FAQs, and launch.</p>
-        </details>
-        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-          <summary class="cursor-pointer font-medium">What does “HIPAA-aware” mean?</summary>
-          <p class="mt-3 text-white/80">We design workflows that reduce PHI exposure and integrate with HIPAA-compliant systems you already use.</p>
-        </details>
-        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-          <summary class="cursor-pointer font-medium">Can we use our number?</summary>
-          <p class="mt-3 text-white/80">Yes. We can text from your current number or provision a new line and forward as needed.</p>
-        </details>
-        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-          <summary class="cursor-pointer font-medium">Not ready to book?</summary>
-          <p class="mt-3 text-white/80">Grab the free guide. We’ll also share a one-page sample playbook.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Demo form -->
-  <section id="demo" class="py-16 lg:py-20 bg-gradient-to-b from-ink to-coal/40 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
-      <div class="fade-up">
-        <h3 class="text-2xl md:text-3xl font-semibold">Book your live demo</h3>
-        <p class="mt-2 text-white/80">We’ll show the exact flow that turns missed calls & DMs into bookings.</p>
-        <ul class="mt-5 space-y-2 text-white/80 text-sm">
-          <li>✓ 20 minutes • no pressure</li>
-          <li>✓ Includes a custom playbook for your team</li>
-          <li>✓ Calendar + CRM sync live</li>
-        </ul>
-      </div>
-      <form class="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4" action="https://formspree.io/f/your-id" method="POST">
-        <div>
-          <label class="text-sm text-white/70">Full Name</label>
-          <input required name="name" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="Jane Patel">
-        </div>
-        <div>
-          <label class="text-sm text-white/70">Work Email</label>
-          <input required type="email" name="email" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="jane@clinic.com">
-        </div>
-        <div>
-          <label class="text-sm text-white/70">Company</label>
-          <input name="company" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="Aurora Clinic">
-        </div>
-        <div>
-          <label class="text-sm text-white/70">Phone (optional)</label>
-          <input name="phone" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="(###) ###-####">
-        </div>
-        <button class="w-full px-5 py-4 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80" type="submit">Book Demo</button>
-        <p class="text-xs text-white/60">By submitting, you agree to be contacted about Swae Systems. No spam.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="pt-14 pb-28">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8 border-t border-white/10 pt-8">
-        <div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full border border-gold/70"></div>
-            <div class="font-semibold">Swae <span class="text-gold">Systems</span></div>
-          </div>
-          <p class="mt-3 text-white/70 text-sm">AI intake & booking that actually converts.</p>
-        </div>
-        <div class="text-sm">
-          <div class="font-medium mb-3">Links</div>
-          <ul class="space-y-2 text-white/80">
-            <li><a href="#proof" class="hover:text-white">Results</a></li>
-            <li><a href="#how" class="hover:text-white">How it Works</a></li>
-            <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
-            <li><a href="#faq" class="hover:text-white">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="text-sm">
-          <div class="font-medium mb-3">Contact</div>
-          <p class="text-white/80">Email: hello@swaesystems.com</p>
-          <p class="text-white/60 mt-2">© <span id="year"></span> Swae Systems. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating desktop CTA -->
-  <a href="#demo" class="hidden lg:flex cta-fab items-center gap-3 px-5 py-3 rounded-full bg-gold text-ink font-semibold shadow-gold hover:opacity-90 active:opacity-80">
-    <span>Book Demo</span>
-  </a>
-
-  <!-- Lead Magnet Modal (Free Guide) -->
-  <div id="guideModal" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative max-w-lg mx-auto mt-28 bg-coal/95 border border-white/10 rounded-2xl p-6">
-      <button id="closeGuide" class="absolute top-3 right-3 text-white/60 hover:text-white">✕</button>
-      <h4 class="text-xl font-semibold">Free Guide: 5 Ways to Cut No-Shows in 14 Days</h4>
-      <p class="mt-2 text-white/80 text-sm">Enter your email and we’ll send the PDF + a sample reminder sequence.</p>
-      <form class="mt-4 space-y-3" action="https://formspree.io/f/your-id" method="POST">
-        <input type="email" required name="guide_email" class="w-full bg-black/50 border border-white/10 rounded-md px-3 py-4" placeholder="you@company.com">
-        <button class="w-full px-5 py-4 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80" type="submit">Send me the guide</button>
-      </form>
+      <div class="demo-note">No sound, 15s loop. Full walk-through on request.</div>
     </div>
   </div>
-
-  <!-- Chat widget placeholder -->
-  <!-- <script>/* Tidio or other chat widget embed here */</script> -->
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fade-up reveal
-    const obs=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
-    },{threshold:.2});
-    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-
-    // Burger
-    const burger=document.getElementById('burger'), menu=document.getElementById('mobileMenu');
-    burger?.addEventListener('click',()=>menu.classList.toggle('hidden'));
-
-    // Guide modal
-    const guide=document.getElementById('guideModal');
-    const openIds=['openGuideTop','openGuideHero','openGuideMid','openGuideMob','openGuideBar'];
-    openIds.forEach(id=>document.getElementById(id)?.addEventListener('click',()=>guide.classList.remove('hidden')));
-    document.getElementById('closeGuide').addEventListener('click',()=>guide.classList.add('hidden'));
-    guide.addEventListener('click',(e)=>{ if(e.target===guide) guide.classList.add('hidden') });
-  </script>
+</section>
+<section id="testimonials">
+  <div class="wrap">
+    <h2 class="title">Trusted by Teams</h2>
+    <p class="kicker">What clients say about Swae’s results.</p>
+    <div class="carousel">
+      <button class="nav-btn prev" aria-label="Previous testimonials" role="button">‹</button>
+      <div class="track" id="track" aria-live="polite">
+        <article class="tcard"><div class="stars" aria-hidden="true">★★★★★</div><div class="quote">“Swae’s like a 24/7 receptionist. Missed calls are now bookings.”</div><div class="client">— Dr. Jane, Miami Med Spa</div></article>
+        <article class="tcard"><div class="stars" aria-hidden="true">★★★★★</div><div class="quote">“Replies in under a minute. No extra staff needed.”</div><div class="client">— Ryan P., Peak Dental</div></article>
+        <article class="tcard"><div class="stars" aria-hidden="true">★★★★★</div><div class="quote">“DMs and calls now fill our calendar seamlessly.”</div><div class="client">— Alyssa, Vitality Aesthetics</div></article>
+      </div>
+      <button class="nav-btn next" aria-label="Next testimonials" role="button">›</button>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="cta reveal luxe">
+      <h3>Turn missed calls into revenue.</h3>
+      <p>20-min demo to see your custom booking flow live.</p>
+      <div class="btn-row">
+        <a class="btn gold" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+<a class="fab" href="contact.html" aria-label="Book a demo">✨ Book Demo</a>
+<footer role="contentinfo">
+  <div class="wrap">© <span id="y"></span> Swae Systems.</div>
+</footer>
+<script>
+try{if('scrollRestoration' in history) history.scrollRestoration='manual';}catch(e){}
+window.scrollTo(0,0);
+document.getElementById('y').textContent=new Date().getFullYear();
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hide'),250);});
+(function(){
+  const bar=document.getElementById('progress');
+  const update=()=>{const h=document.documentElement;const p=(h.scrollTop)/(h.scrollHeight-h.clientHeight);bar.style.width=(p*100)+'%';};
+  update();addEventListener('scroll',update,{passive:true});addEventListener('resize',update,{passive:true});
+})();
+(function(){
+  const menu=document.getElementById('menu');
+  const list=document.getElementById('menuList');
+  const openBtn=document.getElementById('openMenu');
+  const closeBtn=document.getElementById('closeMenu');
+  let lastFocus=null;
+  function focusables(root){return[...root.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hasAttribute('disabled')&&el.offsetParent!==null);}
+  function open(){
+    lastFocus=document.activeElement;
+    document.body.style.overflow='hidden';
+    menu.classList.add('active');
+    openBtn.classList.add('is-open');
+    openBtn.setAttribute('aria-expanded','true');
+    const items=focusables(menu);
+    items.forEach((a,i)=>setTimeout(()=>a.classList?.add('show'),80*i));
+    (items[0]||closeBtn).focus();
+    document.addEventListener('keydown',trap);
+  }
+  function close(){
+    menu.classList.remove('active');
+    openBtn.classList.remove('is-open');
+    openBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+    list.querySelectorAll('a').forEach(a=>a.classList.remove('show'));
+    document.removeEventListener('keydown',trap);
+    (lastFocus||openBtn).focus();
+  }
+  function trap(e){
+    if(e.key==='Escape'){e.preventDefault();close();return;}
+    if(e.key!=='Tab') return;
+    const f=focusables(menu);if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+  openBtn.addEventListener('click',open);
+  closeBtn.addEventListener('click',close);
+  menu.addEventListener('click',e=>{if(e.target===menu) close();});
+})();
+(function(){
+  const hero=document.getElementById('hero');
+  if(!hero)return;
+  let lastY=0;
+  const onScroll=()=>{const y=window.scrollY;if(Math.abs(y-lastY)>2){hero.style.backgroundPosition=`center ${Math.min(0,-y*0.08)}px`;lastY=y;}};
+  document.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+const io=new IntersectionObserver(entries=>{
+  for(const e of entries){
+    if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)';io.unobserve(e.target);}
+  }
+},{threshold:.18});
+document.querySelectorAll('.reveal,.chip,.card').forEach(el=>io.observe(el));
+(function(){
+  const track=document.getElementById('track'),prev=document.querySelector('.nav-btn.prev'),next=document.querySelector('.nav-btn.next');
+  if(!track||!prev||!next)return;let step=0,idx=0,max=0;
+  function measure(){
+    const card=track.querySelector('.tcard');if(!card)return;
+    const gap=parseInt(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||16;
+    step=card.offsetWidth+gap;
+    const count=track.querySelectorAll('.tcard').length;
+    const visible=Math.max(1,Math.round(track.clientWidth/step));
+    max=Math.max(0,count-visible);idx=Math.min(idx,max);
+    go(idx,false);update();
+  }
+  function update(){const atStart=idx<=0,atEnd=idx>=max;
+    prev.disabled=atStart;prev.setAttribute('aria-disabled',atStart);
+    next.disabled=atEnd;next.setAttribute('aria-disabled',atEnd);
+  }
+  function go(i,smooth=true){idx=Math.max(0,Math.min(i,max));track.scrollTo({left:idx*step,behavior:smooth?'smooth':'auto'});update();}
+  prev.addEventListener('click',()=>go(idx-1));next.addEventListener('click',()=>go(idx+1));
+  let to;track.addEventListener('scroll',()=>{clearTimeout(to);to=setTimeout(()=>{const i=Math.round(track.scrollLeft/step);if(i!==idx)go(i);else update();},80);});
+  addEventListener('resize',measure,{passive:true});measure();
+})();
+(function(){
+  const video=document.getElementById('demoVideo');
+  const src=document.getElementById('demoSrc');
+  const card=document.getElementById('demoCard');
+  if(!video||!src)return;
+  function swapToPoster(){
+    if(!card)return;
+    const ph=document.createElement('a');
+    ph.href='contact.html';
+    ph.setAttribute('aria-label','Book a walkthrough');
+    ph.style.display='block';
+    ph.style.position='relative';
+    ph.style.aspectRatio='16/9';
+    ph.style.background='center/cover no-repeat url("demo-poster.jpg"),#0b0b0d';
+    ph.innerHTML='<span style="position:absolute;inset:auto auto 16px 16px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)">▶ Book a walkthrough</span>';
+    const inner=card.querySelector('.demo-inner');
+    inner.innerHTML='';inner.appendChild(ph);
+  }
+  video.addEventListener('error',swapToPoster);
+  setTimeout(()=>{if(video.readyState<2)swapToPoster();},1400);
+})();
+</script>
 </body>
 </html>
