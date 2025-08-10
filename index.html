@@ -4,16 +4,15 @@
   <!-- Meta -->
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Swae Systems — 24/7 AI Intake & Booking that Actually Converts</title>
-  <meta name="description" content="Turn missed calls, texts, and DMs into booked appointments automatically. Black-glove AI intake, instant replies, no-shows reduced, CRM synced. Built for clinics & high-volume service teams."/>
+  <title>Swae Systems — 24/7 AI Intake & Booking</title>
+  <meta name="description" content="Turn missed calls, texts, and DMs into booked appointments automatically. Concierge-level AI intake, instant replies, fewer no-shows, CRM + calendar sync."/>
   <meta name="theme-color" content="#0A0A0B"/>
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Swae Systems — 24/7 AI Intake & Booking"/>
   <meta property="og:description" content="Never miss another lead. Instant replies. Booked on your calendar. Seamless CRM sync."/>
   <meta property="og:image" content="og-image.jpg"/>
   <meta property="og:type" content="website"/>
-  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,61 +27,52 @@
             fog: "#B8BCC4",
           },
           boxShadow: {
-            gold: "0 0 0 1px rgba(212,175,55,0.35), 0 12px 30px rgba(0,0,0,0.35)"
-          }
+            gold: "0 0 0 1px rgba(212,175,55,.35), 0 18px 60px rgba(0,0,0,.45)"
+          },
+          spacing: { '18':'4.5rem' }
         }
       }
     }
   </script>
+
   <style>
-    /* Subtle grain + luxury accents */
-    body { background: #0A0A0B; }
-    .grain:before{
-      content:"";position:fixed;inset:0;pointer-events:none;
-      background-image:url('grain.png'); /* optional */
-      opacity:.08;mix-blend-mode:soft-light
-    }
-    /* Smooths */
-    .smooth { scroll-behavior: smooth; }
-    /* Hide default video controls on iOS overlay */
-    video::-webkit-media-controls { display:none !important; }
-    /* Simple testimonial slider */
-    .t-wrap{scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch}
-    .t-card{scroll-snap-align:center; min-width: 85%; }
-    @media (min-width:1024px){ .t-card{min-width:55%} }
-    /* Sticky CTA (desktop bubble) */
-    .cta-fab{ position: fixed; right: 20px; bottom: 24px; z-index: 50; }
-    /* Mobile sticky bar */
-    .cta-bar{ position: fixed; left:0; right:0; bottom:0; z-index: 40; }
+    body { background:#0A0A0B; }
+    .grain:before{content:"";position:fixed;inset:0;pointer-events:none;background:url('grain.png');opacity:.06;mix-blend-mode:soft-light}
+    .no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+    .t-wrap{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .t-card{scroll-snap-align:center;min-width:85%}@media(min-width:1024px){.t-card{min-width:45%}}
+    .cta-fab{position:fixed;right:22px;bottom:26px;z-index:60}
+    .cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:50}
+    .fade-up{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .fade-up.show{opacity:1;transform:translateY(0)}
+    video::-webkit-media-controls{display:none!important}
   </style>
 </head>
-<body class="text-white smooth grain">
+<body class="text-white grain">
 
-  <!-- Mobile sticky CTA bar -->
-  <div class="cta-bar lg:hidden bg-coal/80 backdrop-blur border-t border-white/10">
+  <!-- Mobile sticky CTA -->
+  <div class="cta-bar lg:hidden bg-coal/85 backdrop-blur border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-      <a href="#demo" class="flex-1 text-center py-3 rounded-md font-semibold bg-gold text-ink hover:opacity-90 transition">Book Demo</a>
-      <button id="openLeadMagnetMobile" class="px-4 py-3 rounded-md font-semibold border border-white/20 hover:border-white/40 transition">Free Guide</button>
+      <a href="#demo" class="flex-1 text-center py-3 rounded-md font-semibold bg-gold text-ink active:opacity-90">Book Demo</a>
+      <button id="openGuideBar" class="px-4 py-3 rounded-md font-semibold border border-white/20 active:opacity-80">Free Guide</button>
     </div>
   </div>
 
   <!-- Nav -->
   <header class="fixed top-0 inset-x-0 z-40">
-    <div class="max-w-6xl mx-auto m-3 rounded-xl bg-coal/60 backdrop-blur border border-white/10 px-4">
+    <div class="max-w-6xl mx-auto m-3 rounded-xl bg-coal/55 backdrop-blur border border-white/10 px-4">
       <div class="flex items-center justify-between h-16">
         <a href="#" class="flex items-center gap-3">
-          <!-- Replace with your logo -->
           <div class="w-9 h-9 rounded-full border border-gold/70 shadow-gold"></div>
           <span class="tracking-wide font-semibold">Swae <span class="text-gold">Systems</span></span>
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
-          <a href="#how" class="hover:text-white">How it Works</a>
           <a href="#proof" class="hover:text-white">Results</a>
+          <a href="#how" class="hover:text-white">How it Works</a>
           <a href="#pricing" class="hover:text-white">Pricing</a>
           <a href="#faq" class="hover:text-white">FAQ</a>
-          <a href="#contact" class="hover:text-white">Contact</a>
-          <a id="openLeadMagnetTop" class="cursor-pointer hover:text-gold">Free Guide</a>
-          <a href="#demo" class="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
+          <button id="openGuideTop" class="hover:text-gold">Free Guide</button>
+          <a href="#demo" class="ml-1 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
         </nav>
         <button id="burger" class="md:hidden p-3 rounded-lg border border-white/10">
           <span class="sr-only">Open menu</span>
@@ -93,188 +83,158 @@
       </div>
     </div>
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden mx-3 mt-2 rounded-xl bg-coal/90 backdrop-blur border border-white/10">
+    <div id="mobileMenu" class="md:hidden hidden mx-3 mt-2 rounded-xl bg-coal/95 backdrop-blur border border-white/10">
       <div class="px-4 py-4 flex flex-col gap-3 text-white/90">
-        <a href="#how" class="py-2">How it Works</a>
         <a href="#proof" class="py-2">Results</a>
+        <a href="#how" class="py-2">How it Works</a>
         <a href="#pricing" class="py-2">Pricing</a>
         <a href="#faq" class="py-2">FAQ</a>
-        <a href="#contact" class="py-2">Contact</a>
-        <button id="openLeadMagnetMobile2" class="py-2 text-left">Free Guide</button>
+        <button id="openGuideMob" class="py-2 text-left">Free Guide</button>
         <a href="#demo" class="mt-2 inline-flex justify-center items-center px-4 py-3 rounded-md bg-gold text-ink font-semibold">Book Demo</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero (cinematic video) -->
+  <!-- HERO: cinematic video -->
   <section class="relative pt-28 lg:pt-32">
     <div class="absolute inset-0 -z-10 overflow-hidden rounded-b-[40px] border-b border-white/10">
       <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="hero-poster.jpg">
         <source src="hero-video.mp4" type="video/mp4"/>
-        <!-- Fallback image -->
       </video>
       <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-ink"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl fade-up">
         <h1 class="text-4xl md:text-6xl font-semibold leading-[1.1]">
-          Turn missed calls & DMs into
-          <span class="text-gold">booked appointments</span> — automatically.
+          Turn missed calls & DMs into <span class="text-gold">booked appointments</span>.
         </h1>
-        <p class="mt-5 text-white/80 max-w-xl">
-          Swae’s 24/7 AI answers in seconds, qualifies, books directly on your calendar, reduces no-shows, and syncs to your CRM. Built for clinics & high-volume teams.
-        </p>
+        <p class="mt-5 text-white/80 max-w-xl">Concierge-level AI that replies in seconds, qualifies, books on your calendar, reduces no-shows, and syncs with your CRM.</p>
         <div class="mt-7 flex flex-wrap items-center gap-3">
-          <a href="#demo" class="px-6 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
-          <button id="openLeadMagnetHero" class="px-6 py-3 rounded-md border border-white/20 hover:border-white/40">Download Free Guide</button>
-          <div class="text-xs text-white/60">Avg. reply time: <span class="text-white/90">under 2s</span> • No dev needed</div>
+          <a href="#demo" class="px-6 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
+          <button id="openGuideHero" class="px-6 py-3 rounded-md border border-white/20 hover:border-white/40 active:opacity-80">Download Free Guide</button>
         </div>
         <div class="mt-6 flex items-center gap-5 text-sm text-white/70">
-          <div class="flex items-center gap-2">
-            <span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span>
-            HIPAA-aware workflows
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span>
-            No-show reduction tools
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span>
-            CRM + calendar sync
-          </div>
+          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> HIPAA-aware workflows</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> No-show reduction</div>
+          <div class="flex items-center gap-2"><span class="inline-block w-5 h-5 rounded-full bg-gold/20 border border-gold/60"></span> CRM + calendar sync</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section id="how" class="relative py-20 lg:py-28">
+  <!-- Social Proof (logos + brief slider) -->
+  <section id="proof" class="py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid gap-10">
         <div>
-          <h2 class="text-3xl md:text-4xl font-semibold">From missed call to confirmed booking — in <span class="text-gold">seconds</span>.</h2>
-          <p class="mt-4 text-white/80">Swae engages instantly across phone, SMS, web chat, and social DMs. It qualifies, answers questions, sends prep instructions, and books directly on your calendar.</p>
-          <ul class="mt-6 space-y-3 text-white/80">
-            <li class="flex gap-3"><span class="text-gold">◆</span> Instant reply across channels</li>
-            <li class="flex gap-3"><span class="text-gold">◆</span> Smart qualification + intake forms</li>
-            <li class="flex gap-3"><span class="text-gold">◆</span> Calendar + CRM sync, no double entry</li>
-            <li class="flex gap-3"><span class="text-gold">◆</span> Automated reminders to cut no-shows</li>
-          </ul>
+          <h3 class="text-2xl md:text-3xl font-semibold">Trusted by fast-moving clinics & service teams</h3>
+          <p class="mt-2 text-white/70">Real outcomes, real teams.</p>
         </div>
-        <!-- Embedded demo video -->
-        <div class="rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-gold">
-          <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="demo-poster.jpg">
-            <source src="demo-30s.mp4" type="video/mp4"/>
-          </video>
-          <div class="p-4 text-xs text-white/60">30s: Watch a missed call become a confirmed appointment.</div>
+
+        <!-- logos -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 opacity-80">
+          <img src="logo-aurora.png" alt="Aurora Clinic" class="h-10 object-contain mx-auto">
+          <img src="logo-vitality.png" alt="Vitality Aesthetics" class="h-10 object-contain mx-auto">
+          <img src="logo-northstar.png" alt="Northstar Wellness" class="h-10 object-contain mx-auto">
+          <img src="logo-peak.png" alt="Peak Dental" class="h-10 object-contain mx-auto">
+        </div>
+
+        <!-- testimonials (lighter, spaced) -->
+        <div class="overflow-x-auto t-wrap no-scrollbar">
+          <div class="flex gap-6">
+            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
+              <div class="text-gold mb-2">★★★★★</div>
+              <blockquote class="text-white/90">“We cut response times from hours to seconds and filled our calendar.”</blockquote>
+              <figcaption class="mt-4 text-white/70 text-sm">Dr. Jane — Miami Med Spa</figcaption>
+            </figure>
+            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
+              <div class="text-gold mb-2">★★★★★</div>
+              <blockquote class="text-white/90">“No-shows dropped and our front desk finally breathes.”</blockquote>
+              <figcaption class="mt-4 text-white/70 text-sm">Ryan P. — Peak Dental</figcaption>
+            </figure>
+            <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
+              <div class="text-gold mb-2">★★★★★</div>
+              <blockquote class="text-white/90">“SMS + IG DMs convert now. It feels like a 24/7 concierge.”</blockquote>
+              <figcaption class="mt-4 text-white/70 text-sm">Alyssa — Vitality Aesthetics</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Proof (logos + testimonials + mini case study) -->
-  <section id="proof" class="py-18 lg:py-24 border-y border-white/10 bg-gradient-to-b from-coal/40 to-ink">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center">
-        <h3 class="text-2xl md:text-3xl font-semibold">Teams that switched to <span class="text-gold">Swae</span> stay booked</h3>
-        <p class="mt-3 text-white/70">Real outcomes from fast-moving clinics & service teams.</p>
+  <!-- Gold-framed DEMO video -->
+  <section class="py-16 lg:py-20 bg-gradient-to-b from-coal/40 to-ink border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="fade-up">
+        <h3 class="text-2xl md:text-3xl font-semibold">See a missed call become a booking — in <span class="text-gold">30 seconds</span>.</h3>
+        <p class="mt-3 text-white/80">Real flow: missed call → instant text → Q&A → slot picked → booked on your calendar → reminders.</p>
+        <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
       </div>
-
-      <!-- logos -->
-      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 opacity-80">
-        <img src="logo-aurora.png" alt="Aurora Clinic" class="h-10 object-contain mx-auto">
-        <img src="logo-vitality.png" alt="Vitality Aesthetics" class="h-10 object-contain mx-auto">
-        <img src="logo-northstar.png" alt="Northstar Wellness" class="h-10 object-contain mx-auto">
-        <img src="logo-peak.png" alt="Peak Dental" class="h-10 object-contain mx-auto">
-      </div>
-
-      <!-- testimonials slider -->
-      <div class="mt-10 overflow-x-auto t-wrap no-scrollbar">
-        <div class="flex gap-6 px-1">
-          <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6">
-            <div class="text-gold mb-2">★★★★★</div>
-            <blockquote class="text-white/90">“We cut response times from hours to seconds and filled our calendar. No extra staff.”</blockquote>
-            <figcaption class="mt-4 text-white/70 text-sm">Dr. Jane, Miami Med Spa</figcaption>
-          </figure>
-          <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6">
-            <div class="text-gold mb-2">★★★★★</div>
-            <blockquote class="text-white/90">“10 days in, no-shows dropped and our front desk finally breathes. Setup took one afternoon.”</blockquote>
-            <figcaption class="mt-4 text-white/70 text-sm">Ryan P., Peak Dental</figcaption>
-          </figure>
-          <figure class="t-card bg-black/40 border border-white/10 rounded-2xl p-6">
-            <div class="text-gold mb-2">★★★★★</div>
-            <blockquote class="text-white/90">“SMS + IG DMs convert now. It feels like a concierge working 24/7.”</blockquote>
-            <figcaption class="mt-4 text-white/70 text-sm">Alyssa, Vitality Aesthetics</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- mini case study -->
-      <div class="mt-12 grid lg:grid-cols-2 gap-8">
-        <div class="bg-black/40 border border-white/10 rounded-2xl p-6">
-          <h4 class="text-xl font-semibold">Case Study — Aurora Clinic</h4>
-          <p class="mt-2 text-white/80">Goal: capture missed calls & weekend DMs.</p>
-          <ul class="mt-4 grid grid-cols-2 gap-4 text-sm">
-            <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">+42%</span><span class="text-white/70">More bookings in 30 days</span></li>
-            <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">-28%</span><span class="text-white/70">No-show rate</span></li>
-            <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">2.1s</span><span class="text-white/70">Median reply time</span></li>
-            <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">14d</span><span class="text-white/70">Time to ROI</span></li>
-          </ul>
-          <p class="mt-4 text-white/70 text-sm">*Representative of typical pilot outcomes. Request full report on the demo call.</p>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-white/10 bg-black/40 p-6">
-          <h4 class="text-xl font-semibold">See the flow</h4>
-          <ol class="mt-4 space-y-3 text-white/80">
-            <li class="flex gap-3"><span class="text-gold">1</span> Missed call auto-texted in 2s</li>
-            <li class="flex gap-3"><span class="text-gold">2</span> AI answers FAQs, qualifies, shares prep info</li>
-            <li class="flex gap-3"><span class="text-gold">3</span> Patient picks a slot → booked on your calendar</li>
-            <li class="flex gap-3"><span class="text-gold">4</span> Reminders go out → fewer no-shows</li>
-          </ol>
-          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
-        </div>
+      <div class="rounded-2xl overflow-hidden border-2 border-gold shadow-gold">
+        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="demo-poster.jpg">
+          <source src="demo-30s.mp4" type="video/mp4"/>
+        </video>
       </div>
     </div>
   </section>
 
-  <!-- ROI quiz / lead magnet CTA row -->
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div class="bg-black/40 border border-white/10 rounded-2xl p-6">
-          <h4 class="text-xl font-semibold">Not ready to book?</h4>
-          <p class="mt-2 text-white/80">Grab our quick guide: <em>5 Ways to Cut No-Shows in 14 Days</em>.</p>
-          <button id="openLeadMagnetMid" class="mt-4 px-5 py-3 rounded-md border border-white/20 hover:border-white/40">Download Free Guide</button>
-        </div>
-        <div class="bg-black/40 border border-white/10 rounded-2xl p-6">
-          <h4 class="text-xl font-semibold">2-min ROI Quiz</h4>
-          <p class="mt-2 text-white/80">Estimate added revenue from instant replies + booking automation.</p>
-          <button id="openRoi" class="mt-4 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Take the Quiz</button>
-        </div>
+  <!-- How it Works (2-col, airy) -->
+  <section id="how" class="py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-start">
+      <div class="fade-up">
+        <h3 class="text-2xl md:text-3xl font-semibold">From missed call to confirmed booking</h3>
+        <p class="mt-3 text-white/80">Swae engages instantly across phone, SMS, web chat, and DMs. It qualifies, answers FAQs, sends prep instructions, and books directly on your calendar.</p>
+        <ul class="mt-6 space-y-3 text-white/80">
+          <li class="flex gap-3"><span class="text-gold">◆</span> Instant reply on every channel</li>
+          <li class="flex gap-3"><span class="text-gold">◆</span> Smart qualification + intake</li>
+          <li class="flex gap-3"><span class="text-gold">◆</span> Calendar & CRM sync (no double entry)</li>
+          <li class="flex gap-3"><span class="text-gold">◆</span> Automated reminders to reduce no-shows</li>
+        </ul>
+      </div>
+      <div class="bg-black/40 border border-white/10 rounded-2xl p-6 fade-up">
+        <h4 class="text-xl font-semibold">Mini Case — Aurora Clinic</h4>
+        <ul class="mt-4 grid grid-cols-2 gap-4 text-sm">
+          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">+42%</span><span class="text-white/70">Bookings (30d)</span></li>
+          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">-28%</span><span class="text-white/70">No-show rate</span></li>
+          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">2.1s</span><span class="text-white/70">Median reply</span></li>
+          <li class="bg-coal/70 rounded-lg p-4 border border-white/10"><span class="text-gold block text-xl font-semibold">14d</span><span class="text-white/70">Time to ROI</span></li>
+        </ul>
+        <p class="mt-3 text-white/60 text-xs">Representative of typical pilot outcomes. Full report on demo.</p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing (simple, founder-friendly) -->
-  <section id="pricing" class="py-18 lg:py-24 border-t border-white/10">
+  <!-- CTA band (single secondary CTA = Guide) -->
+  <section class="py-14 border-y border-white/10 bg-gradient-to-r from-ink via-coal/40 to-ink">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <h4 class="text-xl md:text-2xl font-semibold">Not ready to book? Start with our 5-step no-show playbook.</h4>
+      <button id="openGuideMid" class="px-6 py-3 rounded-md border border-white/20 hover:border-white/40 active:opacity-80">Download Free Guide</button>
+    </div>
+  </section>
+
+  <!-- Pricing (airier, two cards) -->
+  <section id="pricing" class="py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto">
-        <h3 class="text-3xl font-semibold">Simple pricing that scales with you</h3>
+        <h3 class="text-2xl md:text-3xl font-semibold">Simple pricing that scales with you</h3>
         <p class="mt-3 text-white/70">Fast start now, expand when you’re ready.</p>
       </div>
       <div class="mt-10 grid md:grid-cols-2 gap-6">
-        <div class="bg-black/40 border border-white/10 rounded-2xl p-6">
+        <div class="bg-black/40 border border-white/10 rounded-2xl p-6 hover:shadow-gold transition">
           <div class="text-sm uppercase tracking-wide text-white/60">Pilot</div>
           <div class="mt-2 text-4xl font-semibold">$750<span class="text-xl text-white/60"> setup</span></div>
           <div class="mt-1 text-white/70">then $200/mo</div>
           <ul class="mt-5 space-y-2 text-white/80">
             <li>✓ 24/7 AI intake across SMS, chat & DMs</li>
             <li>✓ Calendar + CRM sync</li>
-            <li>✓ Reminders & no-show reduction</li>
+            <li>✓ Reminder flows to cut no-shows</li>
             <li>✓ HIPAA-aware workflows</li>
           </ul>
-          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Start Pilot</a>
+          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Start Pilot</a>
         </div>
-        <div class="bg-black/60 border border-gold/40 rounded-2xl p-6 shadow-gold">
+        <div class="bg-black/60 border border-gold/40 rounded-2xl p-6 shadow-gold hover:shadow-lg transition">
           <div class="text-sm uppercase tracking-wide text-gold">Growth</div>
           <div class="mt-2 text-4xl font-semibold">$1,500<span class="text-xl text-white/60"> setup</span></div>
           <div class="mt-1 text-white/70">then $300/mo</div>
@@ -284,78 +244,74 @@
             <li>✓ Custom playbooks & reporting</li>
             <li>✓ Priority support</li>
           </ul>
-          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90">Book Demo</a>
+          <a href="#demo" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80">Book Demo</a>
         </div>
       </div>
       <p class="mt-6 text-center text-white/60 text-sm">Enterprise or white-label? <a href="#contact" class="underline hover:text-gold">Contact us</a>.</p>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-18 lg:py-24">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-3xl">
-        <h3 class="text-3xl font-semibold">FAQ</h3>
-        <div class="mt-6 space-y-4">
-          <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-            <summary class="cursor-pointer font-medium">How fast can we go live?</summary>
-            <p class="mt-3 text-white/80">Most pilots go live in a day. We plug into your calendar/CRM, import FAQs, and launch.</p>
-          </details>
-          <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-            <summary class="cursor-pointer font-medium">What does “HIPAA-aware” mean?</summary>
-            <p class="mt-3 text-white/80">We design workflows that avoid unnecessary PHI, limit data exposure, and integrate with HIPAA-compliant systems you already use.</p>
-          </details>
-          <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-            <summary class="cursor-pointer font-medium">Can we use our number?</summary>
-            <p class="mt-3 text-white/80">Yes. We can text from your current number or provision a new line and forward as needed.</p>
-          </details>
-          <details class="bg-black/40 border border-white/10 rounded-xl p-5">
-            <summary class="cursor-pointer font-medium">What if we’re not ready to book?</summary>
-            <p class="mt-3 text-white/80">Start with the free guide or the 2-min ROI quiz. We’ll send your results + a sample playbook.</p>
-          </details>
-        </div>
+  <!-- FAQ (compact) -->
+  <section id="faq" class="py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 max-w-3xl">
+      <h3 class="text-2xl md:text-3xl font-semibold">FAQ</h3>
+      <div class="mt-6 space-y-4">
+        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
+          <summary class="cursor-pointer font-medium">How fast can we go live?</summary>
+          <p class="mt-3 text-white/80">Most pilots go live in a day. We plug into your calendar/CRM, import FAQs, and launch.</p>
+        </details>
+        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
+          <summary class="cursor-pointer font-medium">What does “HIPAA-aware” mean?</summary>
+          <p class="mt-3 text-white/80">We design workflows that reduce PHI exposure and integrate with HIPAA-compliant systems you already use.</p>
+        </details>
+        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
+          <summary class="cursor-pointer font-medium">Can we use our number?</summary>
+          <p class="mt-3 text-white/80">Yes. We can text from your current number or provision a new line and forward as needed.</p>
+        </details>
+        <details class="bg-black/40 border border-white/10 rounded-xl p-5">
+          <summary class="cursor-pointer font-medium">Not ready to book?</summary>
+          <p class="mt-3 text-white/80">Grab the free guide. We’ll also share a one-page sample playbook.</p>
+        </details>
       </div>
     </div>
   </section>
 
   <!-- Demo form -->
-  <section id="demo" class="py-18 lg:py-24 border-t border-white/10 bg-gradient-to-b from-ink to-coal/40">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h3 class="text-3xl font-semibold">Book your live demo</h3>
-          <p class="mt-2 text-white/80">We’ll show the exact flow that turns missed calls & DMs into bookings.</p>
-          <ul class="mt-5 space-y-2 text-white/80 text-sm">
-            <li>✓ 20 minutes • no pressure</li>
-            <li>✓ Includes a custom playbook for your team</li>
-            <li>✓ See calendar + CRM sync live</li>
-          </ul>
-        </div>
-        <form class="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4" action="https://formspree.io/f/your-id" method="POST">
-          <div>
-            <label class="text-sm text-white/70">Full Name</label>
-            <input required name="name" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-3 focus:outline-none focus:border-gold/60" placeholder="Jane Patel">
-          </div>
-          <div>
-            <label class="text-sm text-white/70">Work Email</label>
-            <input required type="email" name="email" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-3 focus:outline-none focus:border-gold/60" placeholder="jane@clinic.com">
-          </div>
-          <div>
-            <label class="text-sm text-white/70">Company</label>
-            <input name="company" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-3 focus:outline-none focus:border-gold/60" placeholder="Aurora Clinic">
-          </div>
-          <div>
-            <label class="text-sm text-white/70">Phone (optional)</label>
-            <input name="phone" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-3 focus:outline-none focus:border-gold/60" placeholder="(###) ###-####">
-          </div>
-          <button class="w-full px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90" type="submit">Book Demo</button>
-          <p class="text-xs text-white/60">By submitting, you agree to be contacted about Swae Systems. No spam.</p>
-        </form>
+  <section id="demo" class="py-16 lg:py-20 bg-gradient-to-b from-ink to-coal/40 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
+      <div class="fade-up">
+        <h3 class="text-2xl md:text-3xl font-semibold">Book your live demo</h3>
+        <p class="mt-2 text-white/80">We’ll show the exact flow that turns missed calls & DMs into bookings.</p>
+        <ul class="mt-5 space-y-2 text-white/80 text-sm">
+          <li>✓ 20 minutes • no pressure</li>
+          <li>✓ Includes a custom playbook for your team</li>
+          <li>✓ Calendar + CRM sync live</li>
+        </ul>
       </div>
+      <form class="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4" action="https://formspree.io/f/your-id" method="POST">
+        <div>
+          <label class="text-sm text-white/70">Full Name</label>
+          <input required name="name" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="Jane Patel">
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Work Email</label>
+          <input required type="email" name="email" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="jane@clinic.com">
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Company</label>
+          <input name="company" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="Aurora Clinic">
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Phone (optional)</label>
+          <input name="phone" class="mt-1 w-full bg-coal/70 border border-white/10 rounded-md px-3 py-4 focus:outline-none focus:border-gold/60" placeholder="(###) ###-####">
+        </div>
+        <button class="w-full px-5 py-4 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80" type="submit">Book Demo</button>
+        <p class="text-xs text-white/60">By submitting, you agree to be contacted about Swae Systems. No spam.</p>
+      </form>
     </div>
   </section>
 
-  <!-- Contact / Footer -->
+  <!-- Footer -->
   <footer id="contact" class="pt-14 pb-28">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8 border-t border-white/10 pt-8">
@@ -369,8 +325,8 @@
         <div class="text-sm">
           <div class="font-medium mb-3">Links</div>
           <ul class="space-y-2 text-white/80">
-            <li><a href="#how" class="hover:text-white">How it Works</a></li>
             <li><a href="#proof" class="hover:text-white">Results</a></li>
+            <li><a href="#how" class="hover:text-white">How it Works</a></li>
             <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
             <li><a href="#faq" class="hover:text-white">FAQ</a></li>
           </ul>
@@ -385,98 +341,47 @@
   </footer>
 
   <!-- Floating desktop CTA -->
-  <a href="#demo" class="hidden lg:flex cta-fab items-center gap-3 px-5 py-3 rounded-full bg-gold text-ink font-semibold shadow-gold hover:opacity-90">
+  <a href="#demo" class="hidden lg:flex cta-fab items-center gap-3 px-5 py-3 rounded-full bg-gold text-ink font-semibold shadow-gold hover:opacity-90 active:opacity-80">
     <span>Book Demo</span>
   </a>
 
-  <!-- Lead Magnet Modal -->
-  <div id="leadMagnet" class="fixed inset-0 z-50 hidden">
+  <!-- Lead Magnet Modal (Free Guide) -->
+  <div id="guideModal" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative max-w-lg mx-auto mt-28 bg-coal/90 border border-white/10 rounded-2xl p-6">
-      <button id="closeLeadMagnet" class="absolute top-3 right-3 text-white/60 hover:text-white">✕</button>
+    <div class="relative max-w-lg mx-auto mt-28 bg-coal/95 border border-white/10 rounded-2xl p-6">
+      <button id="closeGuide" class="absolute top-3 right-3 text-white/60 hover:text-white">✕</button>
       <h4 class="text-xl font-semibold">Free Guide: 5 Ways to Cut No-Shows in 14 Days</h4>
       <p class="mt-2 text-white/80 text-sm">Enter your email and we’ll send the PDF + a sample reminder sequence.</p>
       <form class="mt-4 space-y-3" action="https://formspree.io/f/your-id" method="POST">
-        <input type="email" required name="guide_email" class="w-full bg-black/50 border border-white/10 rounded-md px-3 py-3" placeholder="you@company.com">
-        <button class="w-full px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90" type="submit">Send me the guide</button>
+        <input type="email" required name="guide_email" class="w-full bg-black/50 border border-white/10 rounded-md px-3 py-4" placeholder="you@company.com">
+        <button class="w-full px-5 py-4 rounded-md bg-gold text-ink font-semibold hover:opacity-90 active:opacity-80" type="submit">Send me the guide</button>
       </form>
     </div>
   </div>
 
-  <!-- ROI Quiz Modal -->
-  <div id="roiModal" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative max-w-lg mx-auto mt-20 bg-coal/90 border border-white/10 rounded-2xl p-6">
-      <button id="closeRoi" class="absolute top-3 right-3 text-white/60 hover:text-white">✕</button>
-      <h4 class="text-xl font-semibold">2-min ROI Quiz</h4>
-      <form id="roiForm" class="mt-4 space-y-4">
-        <div>
-          <label class="text-sm text-white/70">Missed inquiries per week (approx)</label>
-          <input type="number" min="0" class="mt-1 w-full bg-black/50 border border-white/10 rounded-md px-3 py-3" placeholder="e.g., 25" required>
-        </div>
-        <div>
-          <label class="text-sm text-white/70">Avg revenue per booking ($)</label>
-          <input type="number" min="0" class="mt-1 w-full bg-black/50 border border-white/10 rounded-md px-3 py-3" placeholder="e.g., 300" required>
-        </div>
-        <div>
-          <label class="text-sm text-white/70">% you can convert with instant replies</label>
-          <input type="number" min="0" max="100" class="mt-1 w-full bg-black/50 border border-white/10 rounded-md px-3 py-3" placeholder="e.g., 35" required>
-        </div>
-        <button class="w-full px-5 py-3 rounded-md bg-gold text-ink font-semibold hover:opacity-90" type="submit">Calculate</button>
-      </form>
-      <div id="roiResult" class="mt-4 hidden text-white/90"></div>
-    </div>
-  </div>
-
-  <!-- Chatbot widget placeholder (add your real script below) -->
+  <!-- Chat widget placeholder -->
   <!-- <script>/* Tidio or other chat widget embed here */</script> -->
 
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Fade-up reveal
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
+    },{threshold:.2});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
     // Burger
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const burger=document.getElementById('burger'), menu=document.getElementById('mobileMenu');
+    burger?.addEventListener('click',()=>menu.classList.toggle('hidden'));
 
-    // Lead magnet openers
-    const lm = document.getElementById('leadMagnet');
-    const openers = [
-      'openLeadMagnetTop','openLeadMagnetHero','openLeadMagnetMid',
-      'openLeadMagnetMobile','openLeadMagnetMobile2'
-    ];
-    openers.forEach(id=>{
-      const el = document.getElementById(id);
-      el && el.addEventListener('click', ()=> lm.classList.remove('hidden'));
-    });
-    document.getElementById('closeLeadMagnet').addEventListener('click', ()=> lm.classList.add('hidden'));
-
-    // ROI modal
-    const roi = document.getElementById('roiModal');
-    document.getElementById('openRoi').addEventListener('click', ()=> roi.classList.remove('hidden'));
-    document.getElementById('closeRoi').addEventListener('click', ()=> roi.classList.add('hidden'));
-
-    // ROI calc (super simple)
-    document.getElementById('roiForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const [missed, arpu, pct] = [...e.target.querySelectorAll('input')].map(i=> Number(i.value || 0));
-      const bookings = missed * (pct/100);
-      const monthly = bookings * arpu * 4; // approx 4 weeks
-      const el = document.getElementById('roiResult');
-      el.innerHTML = `<div class="bg-black/50 border border-white/10 rounded-xl p-4">
-        Estimated added revenue: <span class="text-gold font-semibold">$${Math.round(monthly).toLocaleString()}</span> / month
-        <div class="mt-2 text-sm text-white/70">Based on your inputs. Get a precise model on the demo.</div>
-      </div>`;
-      el.classList.remove('hidden');
-    });
-
-    // Close modals on backdrop click
-    [lm, roi].forEach(modal=>{
-      modal.addEventListener('click', (e)=>{
-        if(e.target === modal) modal.classList.add('hidden');
-      });
-    });
+    // Guide modal
+    const guide=document.getElementById('guideModal');
+    const openIds=['openGuideTop','openGuideHero','openGuideMid','openGuideMob','openGuideBar'];
+    openIds.forEach(id=>document.getElementById(id)?.addEventListener('click',()=>guide.classList.remove('hidden')));
+    document.getElementById('closeGuide').addEventListener('click',()=>guide.classList.add('hidden'));
+    guide.addEventListener('click',(e)=>{ if(e.target===guide) guide.classList.add('hidden') });
   </script>
 </body>
 </html>
