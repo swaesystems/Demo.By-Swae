@@ -3,232 +3,163 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Your Clinic — Concierge Care + 24/7 AI Intake</title>
-  <meta name="description" content="Luxury clinic landing page with 24/7 AI intake & booking. Clean, fast, and mobile-perfect."/>
+  <title>Luma Aesthetics — Where Luxury Meets Skin</title>
+  <meta name="description" content="Experience cutting-edge beauty treatments tailored to you. Seamless booking, luxury experience."/>
   <meta name="format-detection" content="telephone=no,email=no,address=no"/>
 
-  <!-- OG -->
-  <meta property="og:title" content="Your Clinic — Concierge Care"/>
-  <meta property="og:description" content="Concierge-level care with instant AI intake & booking."/>
-  <meta property="og:image" content="hero-clinic.PNG"/>
-  <meta property="og:type" content="website"/>
-
-  <!-- Fonts (optional) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b0b0b; --card:#121212; --soft:#1a1a1a;
-      --text:#f5f5f7; --muted:#b6b6b6; --gold:#d4af37; --gold-2:#b8911f;
-      --max:1200px; --radius:16px;
+      --black:#0b0b0b; --ink:#121212; --soft:#1a1a1a; --white:#ffffff;
+      --text:#111; --muted:#666; --tmuted:#d6d6d6;
+      --blush:#eeb7c9; --blush-dark:#d596aa;
+      --gold:#d4af37; /* subtle accents if needed */
+      --max:1100px; --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
-    img{max-width:100%;display:block}
+    *{box-sizing:border-box} img{display:block;max-width:100%}
+    html,body{margin:0;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
     a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
-    .btn{
-      display:inline-block;padding:14px 22px;border:1px solid var(--gold);
-      border-radius:999px; letter-spacing:.3px; font-weight:600;
-      transition:transform .25s ease, background .25s ease, color .25s ease;
+
+    /* Top bar */
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:#fff;color:#111;border-bottom:1px solid #eee;
     }
-    .btn:hover{transform:translateY(-2px); background:var(--gold); color:#111}
-    .btn--ghost{border-color:#3a3a3a;color:#e9e9e9}
-    .btn--ghost:hover{background:#222;color:#fff}
-    /* Loader */
-    .loader{
-      position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;
-      transition:opacity .5s ease; 
-    }
-    .loader__logo{
-      font-family:"Playfair Display", serif;font-size:28px;letter-spacing:.12em;
-      padding:14px 20px;border:1px solid var(--gold);border-radius:999px;
-      color:var(--gold);
-    }
-    .loader--hide{opacity:0;pointer-events:none}
-    /* Nav */
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:50; 
-      backdrop-filter:saturate(130%) blur(10px);
-      background:linear-gradient(180deg, rgba(11,11,11,.85), rgba(11,11,11,.6));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand__mark{width:34px;height:34px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center}
-    .brand__dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
-    .brand__name{font-family:"Playfair Display", serif;letter-spacing:.18em}
-    .nav__links{display:flex;gap:18px}
-    .nav__links a{padding:8px 10px;border-radius:10px;transition:background .2s}
-    .nav__links a:hover{background:#171717}
-    /* Burger */
-    .burger{display:none;width:42px;height:42px;border:1px solid #2a2a2a;border-radius:12px;align-items:center;justify-content:center;background:#121212}
-    .burger span{width:18px;height:2px;background:#e8e8e8;position:relative;display:block}
-    .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#e8e8e8;transition:transform .25s ease, top .25s ease}
-    .burger span::before{top:-6px}.burger span::after{top:6px}
-    .drawer{position:fixed;inset:64px 12px auto 12px;background:#fff;border-radius:16px;display:none;padding:14px;z-index:60}
+    .topbar__inner{max-width:var(--max);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:"Playfair Display",serif;font-size:24px;letter-spacing:.02em}
+    .links{display:flex;gap:18px}
+    .links a{color:#111;padding:8px 10px;border-radius:10px;transition:background .2s}
+    .links a:hover{background:#f3f3f3}
+    .burger{display:none;width:38px;height:38px;border:1px solid #ddd;border-radius:10px;background:#fff;align-items:center;justify-content:center}
+    .burger span{width:18px;height:2px;background:#111;position:relative;display:block}
+    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#111}
+    .burger span:before{top:-6px}.burger span:after{top:6px}
+    .drawer{position:fixed;top:64px;left:12px;right:12px;background:#fff;color:#111;border:1px solid #eee;border-radius:14px;display:none;z-index:60}
     .drawer.open{display:block}
-    .drawer a{display:block;color:#111;padding:12px 10px;border-radius:10px;font-weight:600}
-    .drawer a:hover{background:#f3f3f3}
+    .drawer a{display:block;padding:12px 14px;border-bottom:1px solid #f2f2f2}
+    .drawer a:last-child{border-bottom:0}
+
+    @media (max-width:900px){
+      .links{display:none}
+      .burger{display:flex}
+    }
+
     /* Hero */
-    .hero{position:relative;padding-top:110px}
-    .hero__wrap{border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;background:#0e0e0e}
+    .hero{padding-top:68px;position:relative}
+    .hero__wrap{max-width:var(--max);margin:0 auto;border-radius:var(--radius);overflow:hidden}
     .hero__img{
-      position:relative;height:64vh;min-height:520px; background:#0e0e0e url('hero-clinic.PNG') center/cover no-repeat;
+      position:relative;height:88vh;min-height:640px;
+      background:#000 url('HERO.PNG') center/cover no-repeat;
     }
-    .hero__img::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.85));
+    .hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.65))}
+    .hero__copy{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;
     }
-    .hero__content{position:absolute;inset:0;display:flex;align-items:flex-end}
-    .hero__inner{width:100%}
-    .hero__copy{padding:36px;max-width:var(--max);margin:0 auto}
-    .eyebrow{color:var(--gold);letter-spacing:.28em;font-size:.78rem;text-transform:uppercase}
-    h1{font-family:"Playfair Display", serif;font-size:clamp(36px, 4.8vw, 66px);line-height:1.02;margin:14px 0 10px}
-    .sub{color:var(--muted);font-size:clamp(14px, 1.6vw, 18px);max-width:720px}
-    .hero__cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .hero__inner{max-width:760px}
+    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;
+           font-size:clamp(34px,6.2vw,68px);color:#fff;margin:0 0 10px}
+    .sub{color:#eee;font-size:clamp(15px,2.2vw,20px)}
+    .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:14px 22px;border-radius:999px;border:0;font-weight:700;cursor:pointer;transition:transform .2s ease,opacity .2s ease;
+    }
+    .btn--blush{background:var(--blush);color:#111}
+    .btn--blush:hover{transform:translateY(-2px);opacity:.95}
+    .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
+    .btn--ghost:hover{transform:translateY(-2px)}
+
     /* Sections */
-    section{padding:80px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    section{padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .kicker{letter-spacing:.22em;text-transform:uppercase;color:var(--blush);font-size:.8rem;font-weight:700}
+    h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.2vw,42px);margin:8px 0 10px}
+    p{color:#e8e8e8}
     .grid{display:grid;gap:18px}
-    .grid--3{grid-template-columns:repeat(3, 1fr)}
-    .grid--2{grid-template-columns:repeat(2, 1fr)}
-    @media(max-width:900px){.grid--3{grid-template-columns:1fr}.grid--2{grid-template-columns:1fr}}
-    .card{
-      background:linear-gradient(180deg,#121212,#0f0f0f); border:1px solid rgba(255,255,255,.06);
-      border-radius:16px; padding:22px; transition:transform .25s ease, border-color .25s ease;
-    }
-    .card:hover{transform:translateY(-4px); border-color:rgba(212,175,55,.5)}
-    .kicker{color:var(--gold);font-weight:600;letter-spacing:.18em;font-size:.78rem;text-transform:uppercase}
-    h2{font-family:"Playfair Display", serif;font-size:clamp(28px, 3.2vw, 42px);margin:8px 0 12px}
-    p{color:#d8d8d8}
-    /* Testimonials (scroll-snap) */
-    .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
-    .snap::-webkit-scrollbar{height:6px}
-    .snap::-webkit-scrollbar-thumb{background:#222;border-radius:999px}
-    .quote{min-width:320px; max-width:420px;scroll-snap-align:start}
-    .stars{color:var(--gold);letter-spacing:2px}
-    /* Booking */
-    .form{display:grid;gap:14px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:700px){.row{grid-template-columns:1fr}}
-    input, select, textarea{
-      width:100%;background:#0f0f0f;color:#fff;border:1px solid #2a2a2a;border-radius:12px;padding:14px 14px;font-size:15px;
-      outline:none;transition:border-color .2s, box-shadow .2s;
-    }
-    input:focus, select:focus, textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+    .grid--3{grid-template-columns:repeat(3,1fr)}
+    .grid--2{grid-template-columns:repeat(2,1fr)}
+    @media(max-width:900px){.grid--3,.grid--2{grid-template-columns:1fr}}
+
+    .card{background:linear-gradient(180deg,#121212,#0e0e0e);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px}
+    .card:hover{border-color:rgba(238,183,201,.55)}
+    .thumb{height:200px;border-radius:12px;background:#0f0f0f center/cover no-repeat;margin-bottom:12px}
+
+    /* Testimonials — horizontal snap */
+    .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+    .snap::-webkit-scrollbar{height:6px}.snap::-webkit-scrollbar-thumb{background:#222;border-radius:999px}
+    .quote{min-width:320px;max-width:420px;scroll-snap-align:start}
+    .stars{color:var(--blush);letter-spacing:2px}
+
     /* Footer */
-    footer{padding:60px 0}
+    footer{padding:70px 0}
     .foot{display:grid;gap:18px;grid-template-columns:2fr 1fr 1fr}
     @media(max-width:900px){.foot{grid-template-columns:1fr}}
-    .small{color:#9c9c9c;font-size:13px}
-    /* Chat bubble (pilot hook) */
-    .chat{
-      position:fixed;right:18px;bottom:18px;z-index:55;display:flex;flex-direction:column;align-items:flex-end;gap:10px;
-    }
-    .chat__panel{
-      display:none;background:#fff;color:#111;border-radius:16px;max-width:320px;border:1px solid #eaeaea;box-shadow:0 10px 30px rgba(0,0,0,.35);
-      overflow:hidden;
-    }
-    .chat__panel.open{display:block}
-    .chat__head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #f0f0f0}
-    .chat__body{padding:14px}
-    .chat__btn{
-      background:linear-gradient(180deg, var(--gold), var(--gold-2));
-      color:#111;border:none;border-radius:999px;padding:14px 18px;font-weight:800;cursor:pointer;
-      box-shadow:0 6px 20px rgba(212,175,55,.25);
-    }
-    .muted{color:#8f8f8f}
+    .small{color:#bfbfbf;font-size:13px}
   </style>
 </head>
 <body>
-  <!-- Soft loader -->
-  <div class="loader" id="loader"><div class="loader__logo">YOUR CLINIC</div></div>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a class="brand" href="#">
-        <span class="brand__mark"><span class="brand__dot"></span></span>
-        <span class="brand__name">YOUR CLINIC</span>
-      </a>
-      <div class="nav__links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">Luma Aesthetics</div>
+      <nav class="links">
+        <a href="#services">Treatments</a>
         <a href="#testimonials">Testimonials</a>
-        <a href="#book" class="btn">Book Now</a>
-      </div>
+        <a href="#book">Book</a>
+      </nav>
       <button class="burger" id="burger" aria-label="Open menu"><span></span></button>
     </div>
     <div class="drawer" id="drawer">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="#services">Treatments</a>
       <a href="#testimonials">Testimonials</a>
-      <a href="#book">Book Now</a>
+      <a href="#book">Book</a>
     </div>
-  </nav>
+  </div>
 
   <!-- HERO -->
   <header class="hero">
-    <div class="container hero__wrap">
+    <div class="hero__wrap">
       <div class="hero__img">
-        <div class="hero__content">
+        <div class="hero__veil"></div>
+        <div class="hero__copy">
           <div class="hero__inner">
-            <div class="hero__copy">
-              <div class="eyebrow">Concierge Care</div>
-              <h1>Premium Clinic Experience,<br/> Seamless <span style="color:var(--gold)">24/7 AI Intake</span>.</h1>
-              <p class="sub">Same-day appointments, insurance-friendly, and a real human team — elevated by an AI assistant that books, answers FAQs, and triages instantly.</p>
-              <div class="hero__cta">
-                <a href="#book" class="btn">Book Now</a>
-                <a href="#about" class="btn btn--ghost">Explore Clinic</a>
-              </div>
+            <h1 class="title">Where Luxury Meets Skin</h1>
+            <p class="sub">Experience cutting-edge beauty treatments tailored to you.</p>
+            <div class="cta">
+              <a class="btn btn--blush" href="book.html">Book Now</a>
+              <a class="btn btn--ghost" href="#services">Explore Treatments</a>
             </div>
           </div>
         </div>
-      </div><!-- /hero__img -->
-    </div>
-  </header>
-    <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="grid grid--2">
-        <div class="card">
-          <div class="kicker">Why Us</div>
-          <h2>Simple. Fast. Luxurious.</h2>
-          <p>We designed every step for clarity and speed — from check-in to follow-up. Our 24/7 AI assistant handles intake and questions instantly, while our clinicians focus on elevated care.</p>
-          <ul class="small">
-            <li>• Same-day & next-day availability</li>
-            <li>• Insurance-friendly, transparent pricing</li>
-            <li>• Secure, HIPAA-aligned messaging</li>
-          </ul>
-        </div>
-        <div class="card" style="padding:0;overflow:hidden">
-          <div style="height:100%;min-height:260px;background:#101010 url('lobby.PNG') center/cover no-repeat"></div>
-        </div>
       </div>
     </div>
-  </section>
-
-  <!-- SERVICES -->
+  </header>
+   <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <div class="kicker">Treatments</div>
-      <h2>Care, Curated for You</h2>
+      <h2>Curated Care, Crafted for Results</h2>
+
       <div class="grid grid--3" style="margin-top:18px">
-        <a class="card" href="#book">
-          <div style="height:180px;border-radius:12px;background:#0f0f0f url('treatment-1.PNG') center/cover no-repeat;margin-bottom:14px"></div>
-          <h3 style="margin:8px 0 6px">Primary Care</h3>
-          <p class="small">Annual visits, labs, referrals & ongoing support.</p>
+        <a class="card" href="book.html">
+          <div class="thumb" style="background-image:url('BOTOX.PNG')"></div>
+          <h3 style="margin:6px 0 4px">Botox & Fillers</h3>
+          <p class="small">Targeted smoothing and subtle volume for a youthful glow.</p>
         </a>
-        <a class="card" href="#book">
-          <div style="height:180px;border-radius:12px;background:#0f0f0f url('treatment-2.PNG') center/cover no-repeat;margin-bottom:14px"></div>
-          <h3 style="margin:8px 0 6px">Wellness & IV</h3>
-          <p class="small">Nutrition consults, IV therapy & vitamin support.</p>
+
+        <a class="card" href="book.html">
+          <div class="thumb" style="background-image:url('LASER.PNG')"></div>
+          <h3 style="margin:6px 0 4px">Laser Hair Removal</h3>
+          <p class="small">Long-term reduction with minimal downtime.</p>
         </a>
-        <a class="card" href="#book">
-          <div style="height:180px;border-radius:12px;background:#0f0f0f url('treatment-3.PNG') center/cover no-repeat;margin-bottom:14px"></div>
-          <h3 style="margin:8px 0 6px">Telehealth</h3>
-          <p class="small">Fast virtual care for simple needs & follow-ups.</p>
+
+        <a class="card" href="book.html">
+          <div class="thumb" style="background-image:url('FACIALS.PNG')"></div>
+          <h3 style="margin:6px 0 4px">Facials & Skincare</h3>
+          <p class="small">Clinically-designed facials for clarity, tone, and texture.</p>
         </a>
       </div>
     </div>
@@ -238,62 +169,64 @@
   <section id="testimonials">
     <div class="container">
       <div class="kicker">Testimonials</div>
-      <h2>Patients, Delighted</h2>
-      <div class="snap" style="margin-top:16px">
+      <h2>Five-Star Experiences</h2>
+      <div class="snap" style="margin-top:14px">
         <div class="card quote">
           <div class="stars">★★★★★</div>
-          <p>“The AI intake booked me in 30 seconds — then the team took incredible care of me.”</p>
-          <p class="small muted">— A.M.</p>
+          <p>“I booked at midnight and got confirmed first thing. Luma is elite.”</p>
+          <p class="small">— A.M.</p>
         </div>
         <div class="card quote">
           <div class="stars">★★★★★</div>
-          <p>“Luxury vibe, zero hassle. I asked a question at 11pm and got an instant, accurate answer.”</p>
-          <p class="small muted">— R.K.</p>
+          <p>“Luxury vibe, zero pressure, results on point. I’m obsessed.”</p>
+          <p class="small">— K.R.</p>
         </div>
         <div class="card quote">
           <div class="stars">★★★★★</div>
-          <p>“Clean, fast, professional. Best clinic experience I’ve had.”</p>
-          <p class="small muted">— D.S.</p>
+          <p>“Fast intake, stunning space, and a team that really listens.”</p>
+          <p class="small">— D.S.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOOKING -->
+  <!-- BOOK -->
   <section id="book">
     <div class="container">
       <div class="kicker">Book Now</div>
       <h2>Reserve Your Visit</h2>
+
       <div class="grid grid--2" style="margin-top:18px">
         <div class="card">
-          <form class="form" id="bookingForm">
-            <div class="row">
-              <input required name="name" placeholder="Full Name"/>
-              <input required name="phone" placeholder="Phone"/>
+          <form id="bookingForm" class="form" style="display:grid;gap:14px">
+            <div class="grid grid--2" style="gap:14px">
+              <input name="name" placeholder="Full Name" required/>
+              <input name="phone" placeholder="Phone" required/>
             </div>
-            <div class="row">
-              <input required name="email" type="email" placeholder="Email"/>
+            <div class="grid grid--2" style="gap:14px">
+              <input type="email" name="email" placeholder="Email" required/>
               <select name="service" required>
                 <option value="" disabled selected>Select Service</option>
-                <option>Primary Care</option>
-                <option>Wellness & IV</option>
-                <option>Telehealth</option>
+                <option>Botox & Fillers</option>
+                <option>Laser Hair Removal</option>
+                <option>Facials & Skincare</option>
               </select>
             </div>
-            <div class="row">
-              <input required type="date" name="date" placeholder="Select Date"/>
-              <input required type="time" name="time" placeholder="Select Time"/>
+            <div class="grid grid--2" style="gap:14px">
+              <input type="date" name="date" required/>
+              <input type="time" name="time" required/>
             </div>
-            <textarea name="notes" rows="4" placeholder="Notes (optional)"></textarea>
-            <button class="btn" type="submit">Submit Request</button>
-            <div id="formMsg" class="small muted"></div>
+            <textarea rows="4" name="notes" placeholder="Notes (optional)"></textarea>
+            <button class="btn btn--blush" type="submit">Submit Request</button>
+            <div id="formMsg" class="small" style="color:#bbb"></div>
           </form>
         </div>
         <div class="card" style="padding:0;overflow:hidden">
-          <div style="height:100%;min-height:340px;background:#101010 url('staff.PNG') center/cover no-repeat"></div>
+          <div style="height:100%;min-height:340px;background:#0f0f0f url('STUDIO.PNG') center/cover no-repeat"></div>
         </div>
       </div>
-      <p class="small muted" style="margin-top:10px">Submitting this form does not guarantee an appointment. We’ll confirm by text/email.</p>
+
+      <p class="small" style="color:#a8a8a8;margin-top:8px">We’ll confirm by text/email. Submitting this form does not guarantee an appointment.</p>
     </div>
   </section>
 
@@ -301,76 +234,35 @@
   <footer>
     <div class="container foot">
       <div>
-        <div class="kicker">Your Clinic</div>
-        <h3 style="margin:8px 0 10px;font-family:Playfair Display,serif">Care without friction.</h3>
-        <p class="small">123 Luxury Ave, Suite 100 • City, ST 90000<br/>Mon–Sat 8am–8pm</p>
+        <div class="kicker">Luma Aesthetics</div>
+        <h3 style="font-family:Playfair Display,serif;margin:8px 0 10px">Where luxury meets skin.</h3>
+        <p class="small">123 Rose Ave, Suite 100 • City, ST 90000<br/>Mon–Sat 9am–7pm</p>
       </div>
       <div>
         <div class="kicker">Contact</div>
-        <p class="small">Phone: (000) 000-0000<br/>Email: hello@yourclinic.com</p>
+        <p class="small">hello@luma.com • (000) 000-0000</p>
       </div>
       <div>
-        <div class="kicker">Links</div>
-        <p class="small"><a href="#services">Services</a> • <a href="#book">Book</a> • <a href="#about">About</a></p>
+        <div class="kicker">Explore</div>
+        <p class="small"><a href="#services">Treatments</a> • <a href="#testimonials">Reviews</a> • <a href="book.html">Book</a></p>
       </div>
     </div>
   </footer>
-    <!-- CHAT BUBBLE (Pilot hook) -->
-  <div class="chat">
-    <div class="chat__panel" id="chatPanel" role="dialog" aria-label="AI Intake">
-      <div class="chat__head">
-        <strong>AI Intake (Demo)</strong>
-        <button aria-label="Close" onclick="toggleChat()" style="background:none;border:none;font-size:22px;cursor:pointer">×</button>
-      </div>
-      <div class="chat__body">
-        <p class="small">This is the placeholder for your 24/7 AI assistant. Next step, we connect it to the **pilot flow** (Tidio/Make/Twilio or your stack) to capture leads, answer FAQs, and book.</p>
-        <p class="small muted">We’ll wire this to the same sheet/CRM you use in the pilot.</p>
-      </div>
-    </div>
-    <button class="chat__btn" onclick="toggleChat()">Chat</button>
-  </div>
-
-  <!-- Pilot widget placeholder (keep near end of body) -->
-  <!-- Replace with your real script when ready -->
-  <!-- <script src="YOUR_TIDIO_OR_CUSTOM_WIDGET.js" defer></script> -->
-
-  <script>
-    // Loader
-    window.addEventListener('load', ()=> {
-      setTimeout(()=>document.getElementById('loader').classList.add('loader--hide'), 250);
-    });
-
-    // Mobile menu
+    <script>
+    // Mobile drawer
     const burger = document.getElementById('burger');
     const drawer = document.getElementById('drawer');
-    function syncBurger(open){
-      const bar = burger.querySelector('span');
-      if(open){ bar.style.background='transparent'; bar.style.transform='rotate(0deg)';
-        bar.before.style = ''; bar.after.style = '';
-      }
-    }
-    burger?.addEventListener('click', ()=>{
-      drawer.classList.toggle('open');
-    });
-    // Show burger on small screens
-    const media = window.matchMedia('(max-width: 900px)');
-    function handleNav(e){
-      document.getElementById('navLinks').style.display = e.matches ? 'none' : 'flex';
-      burger.style.display = e.matches ? 'flex' : 'none';
-      if(!e.matches) drawer.classList.remove('open');
-    }
-    handleNav(media); media.addEventListener('change', handleNav);
+    burger?.addEventListener('click', ()=> drawer.classList.toggle('open'));
 
-    // Chat bubble
-    function toggleChat(){ document.getElementById('chatPanel').classList.toggle('open'); }
-
-    // Fake booking submit (replace with pilot webhook)
+    // Fake submit — swap with your pilot webhook (Make/Tidio)
     document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target).entries());
-      // TODO: Replace with your pilot endpoint (e.g., Make.com webhook)
-      // await fetch('https://YOUR_WEBHOOK_URL', {method:'POST', body: JSON.stringify(data), headers:{'Content-Type':'application/json'}});
-      document.getElementById('formMsg').textContent = "Request received. We’ll confirm shortly.";
+      // await fetch('https://YOUR_MAKE_WEBHOOK_URL', {
+      //   method:'POST', headers:{'Content-Type':'application/json'},
+      //   body: JSON.stringify(data)
+      // });
+      document.getElementById('formMsg').textContent = "Request received — we’ll text/email a confirmation shortly.";
       e.target.reset();
     });
   </script>
