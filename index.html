@@ -7,73 +7,66 @@
   <meta name="description" content="Experience cutting-edge beauty treatments tailored to you. Seamless booking, luxury experience."/>
   <meta name="format-detection" content="telephone=no,email=no,address=no"/>
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luma Aesthetics — Luxury Med Spa"/>
+  <meta property="og:description" content="Concierge-grade treatments with seamless booking."/>
+  <meta property="og:image" content="HERO.PNG"/>
+  <meta property="og:type" content="website"/>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --black:#0b0b0b; --ink:#121212; --soft:#1a1a1a; --white:#ffffff;
-      --text:#111; --muted:#666; --tmuted:#d6d6d6;
+      --white:#ffffff; --ink:#111111; --muted:#6b6b6b;
+      --bg:#000000; --panel:#0f0f0f;
       --blush:#eeb7c9; --blush-dark:#d596aa;
-      --gold:#d4af37; /* subtle accents if needed */
       --max:1100px; --radius:16px;
     }
-    *{box-sizing:border-box} img{display:block;max-width:100%}
-    html,body{margin:0;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
 
     /* Top bar */
-    .topbar{
-      position:fixed;top:0;left:0;right:0;z-index:50;
-      background:#fff;color:#111;border-bottom:1px solid #eee;
-    }
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--white);color:var(--ink);border-bottom:1px solid #eee}
     .topbar__inner{max-width:var(--max);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
     .brand{font-family:"Playfair Display",serif;font-size:24px;letter-spacing:.02em}
     .links{display:flex;gap:18px}
-    .links a{color:#111;padding:8px 10px;border-radius:10px;transition:background .2s}
+    .links a{color:var(--ink);padding:8px 10px;border-radius:10px;transition:background .2s}
     .links a:hover{background:#f3f3f3}
     .burger{display:none;width:38px;height:38px;border:1px solid #ddd;border-radius:10px;background:#fff;align-items:center;justify-content:center}
     .burger span{width:18px;height:2px;background:#111;position:relative;display:block}
-    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#111}
-    .burger span:before{top:-6px}.burger span:after{top:6px}
-    .drawer{position:fixed;top:64px;left:12px;right:12px;background:#fff;color:#111;border:1px solid #eee;border-radius:14px;display:none;z-index:60}
-    .drawer.open{display:block}
+    .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#111}
+    .burger span::before{top:-6px}.burger span::after{top:6px}
+    .drawer{position:fixed;top:64px;left:12px;right:12px;background:#fff;color:#111;border:1px solid #eee;border-radius:14px;display:none;z-index:60;
+            opacity:0;transform:translateY(-8px) scale(.98);transition:.18s ease;transform-origin:top}
+    .drawer.open{display:block;opacity:1;transform:translateY(0) scale(1)}
     .drawer a{display:block;padding:12px 14px;border-bottom:1px solid #f2f2f2}
     .drawer a:last-child{border-bottom:0}
-
-    @media (max-width:900px){
-      .links{display:none}
-      .burger{display:flex}
-    }
+    @media (max-width:900px){ .links{display:none} .burger{display:flex} }
 
     /* Hero */
     .hero{padding-top:68px;position:relative}
     .hero__wrap{max-width:var(--max);margin:0 auto;border-radius:var(--radius);overflow:hidden}
-    .hero__img{
-      position:relative;height:88vh;min-height:640px;
-      background:#000 url('HERO.PNG') center/cover no-repeat;
-    }
-    .hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.65))}
-    .hero__copy{
-      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;
-    }
+    .hero__img{position:relative;height:88vh;min-height:640px;background:#000 url('HERO.PNG') center/cover no-repeat}
+    .hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.70))}
+    .hero__copy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
     .hero__inner{max-width:760px}
-    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;
-           font-size:clamp(34px,6.2vw,68px);color:#fff;margin:0 0 10px}
-    .sub{color:#eee;font-size:clamp(15px,2.2vw,20px)}
+    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;font-size:clamp(34px,6.2vw,68px);margin:0 0 10px;color:#fff;
+           text-shadow:0 2px 18px rgba(0,0,0,.45)}
+    .sub{color:#eee;font-size:clamp(15px,2.2vw,20px);text-shadow:0 1px 12px rgba(0,0,0,.35)}
     .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:14px 22px;border-radius:999px;border:0;font-weight:700;cursor:pointer;transition:transform .2s ease,opacity .2s ease;
-    }
-    .btn--blush{background:var(--blush);color:#111}
+    .btn{display:inline-block;padding:14px 22px;border-radius:999px;border:0;font-weight:700;cursor:pointer;transition:transform .2s ease,opacity .2s ease, box-shadow .2s ease}
+    .btn--blush{background:var(--blush);color:#111;box-shadow:0 10px 28px rgba(238,183,201,.25)}
     .btn--blush:hover{transform:translateY(-2px);opacity:.95}
-    .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
+    .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
     .btn--ghost:hover{transform:translateY(-2px)}
 
     /* Sections */
     section{padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
     .kicker{letter-spacing:.22em;text-transform:uppercase;color:var(--blush);font-size:.8rem;font-weight:700}
     h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.2vw,42px);margin:8px 0 10px}
     p{color:#e8e8e8}
@@ -82,14 +75,14 @@
     .grid--2{grid-template-columns:repeat(2,1fr)}
     @media(max-width:900px){.grid--3,.grid--2{grid-template-columns:1fr}}
 
-    .card{background:linear-gradient(180deg,#121212,#0e0e0e);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px}
+    .card{background:linear-gradient(180deg,#121212,#0e0e0e);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px;transition:border-color .2s}
     .card:hover{border-color:rgba(238,183,201,.55)}
     .thumb{height:200px;border-radius:12px;background:#0f0f0f center/cover no-repeat;margin-bottom:12px}
 
-    /* Testimonials — horizontal snap */
-    .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+    /* Testimonials — smooth horizontal snap */
+    .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
     .snap::-webkit-scrollbar{height:6px}.snap::-webkit-scrollbar-thumb{background:#222;border-radius:999px}
-    .quote{min-width:320px;max-width:420px;scroll-snap-align:start}
+    .quote{min-width:360px;max-width:420px;scroll-snap-align:start}
     .stars{color:var(--blush);letter-spacing:2px}
 
     /* Footer */
@@ -97,10 +90,10 @@
     .foot{display:grid;gap:18px;grid-template-columns:2fr 1fr 1fr}
     @media(max-width:900px){.foot{grid-template-columns:1fr}}
     .small{color:#bfbfbf;font-size:13px}
+    .muted{color:#999}
   </style>
 </head>
 <body>
-
   <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar__inner">
@@ -137,7 +130,7 @@
       </div>
     </div>
   </header>
-   <!-- SERVICES -->
+    <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <div class="kicker">Treatments</div>
@@ -218,7 +211,7 @@
             </div>
             <textarea rows="4" name="notes" placeholder="Notes (optional)"></textarea>
             <button class="btn btn--blush" type="submit">Submit Request</button>
-            <div id="formMsg" class="small" style="color:#bbb"></div>
+            <div id="formMsg" class="small muted"></div>
           </form>
         </div>
         <div class="card" style="padding:0;overflow:hidden">
@@ -248,22 +241,28 @@
       </div>
     </div>
   </footer>
-    <script>
+  <script>
     // Mobile drawer
     const burger = document.getElementById('burger');
     const drawer = document.getElementById('drawer');
     burger?.addEventListener('click', ()=> drawer.classList.toggle('open'));
 
-    // Fake submit — swap with your pilot webhook (Make/Tidio)
+    // Booking submit — plug your PILOT webhook here
     document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target).entries());
-      // await fetch('https://YOUR_MAKE_WEBHOOK_URL', {
-      //   method:'POST', headers:{'Content-Type':'application/json'},
-      //   body: JSON.stringify(data)
-      // });
-      document.getElementById('formMsg').textContent = "Request received — we’ll text/email a confirmation shortly.";
-      e.target.reset();
+      try{
+        // Replace with your Make/Tidio webhook URL:
+        // const res = await fetch('https://YOUR_WEBHOOK_URL', {
+        //   method:'POST',
+        //   headers:{'Content-Type':'application/json'},
+        //   body: JSON.stringify({...data, source:'Luma-Homepage', ts:new Date().toISOString()})
+        // });
+        document.getElementById('formMsg').textContent = "Request received — we’ll confirm shortly.";
+        e.target.reset();
+      }catch(err){
+        document.getElementById('formMsg').textContent = "Something went wrong. Please try again.";
+      }
     });
   </script>
 </body>
