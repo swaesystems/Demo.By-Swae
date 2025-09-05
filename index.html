@@ -17,13 +17,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- 🔗 PILOT endpoint (PUT YOUR URL HERE) -->
+  <script>
+   window.PILOT_ENDPOINT = "https://script.google.com/macros/s/AKfycbwHhiwMTraUv1E6DQhIU3Jr2DrUfLQivXpRjNN7aPqSO6JqfFKhyRBuulUUcuTATRBgxg/exec";
+  </script>
+
   <style>
     :root{
       --white:#ffffff; --ink:#111111; --muted:#6b6b6b;
       --bg:#000000; --panel:#0f0f0f;
       --blush:#eeb7c9; --blush-dark:#d596aa;
       --max:1100px; --radius:16px;
-      --nav-h:68px; /* added for glossy nav spacing */
+      --nav-h:68px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -31,71 +36,43 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-    /* ===== Top bar - glossy luxury (REPLACED) ===== */
-    .topbar {
-      position:fixed; top:0; left:0; right:0;
-      z-index:100; height:var(--nav-h);
+    /* Top bar */
+    .topbar{position:fixed; top:0; left:0; right:0; z-index:100; height:var(--nav-h);
       background:linear-gradient(180deg, rgba(10,10,10,.85), rgba(10,10,10,.65));
-      backdrop-filter: blur(14px) saturate(150%);
-      -webkit-backdrop-filter: blur(14px) saturate(150%);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      color:#fff;
-    }
-    .topbar__inner{
-      max-width:var(--max); margin:0 auto; height:100%;
-      display:flex; align-items:center; justify-content:space-between; padding:0 18px;
-    }
-    .brand {
-      font-family:"Playfair Display",serif; font-size:24px; letter-spacing:.04em; color:#fff; white-space:nowrap;
-    }
+      backdrop-filter: blur(14px) saturate(150%); -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border-bottom:1px solid rgba(255,255,255,.08); color:#fff;}
+    .topbar__inner{max-width:var(--max); margin:0 auto; height:100%;
+      display:flex; align-items:center; justify-content:space-between; padding:0 18px;}
+    .brand{font-family:"Playfair Display",serif; font-size:24px; letter-spacing:.04em; color:#fff; white-space:nowrap;}
     .links{ display:flex; gap:24px; align-items:center; }
-    .links a {
-      color:#fff; padding:8px 12px; border-radius:12px;
-      transition:background .2s,color .2s, border-color .2s; border:1px solid transparent;
-    }
-    .links a:hover { background:rgba(255,255,255,.08); color:var(--blush); border-color:rgba(255,255,255,.12) }
-    .burger {
-      display:none; width:40px; height:40px; border-radius:12px;
-      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16);
-      align-items:center; justify-content:center;
-    }
+    .links a{color:#fff; padding:8px 12px; border-radius:12px; transition:background .2s,color .2s, border-color .2s; border:1px solid transparent;}
+    .links a:hover{ background:rgba(255,255,255,.08); color:var(--blush); border-color:rgba(255,255,255,.12) }
+    .burger{display:none; width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); align-items:center; justify-content:center;}
     .burger span{ width:18px; height:2px; background:#fff; position:relative; display:block }
-    .burger span::before,.burger span::after{
-      content:""; position:absolute; left:0; width:18px; height:2px; background:#fff; transition:.2s
-    }
+    .burger span::before,.burger span::after{content:""; position:absolute; left:0; width:18px; height:2px; background:#fff; transition:.2s}
     .burger span::before{ top:-6px } .burger span::after{ top:6px }
     @media (max-width: 960px){ .links{ display:none } .burger{ display:flex } }
-    /* keep content from hiding under nav */
     body{ padding-top:var(--nav-h) }
 
-    /* ===== Mobile Drawer (ADDED) ===== */
-    .drawer{
-      position:fixed; top:calc(var(--nav-h) + 8px); left:12px; right:12px;
-      background:rgba(20,20,20,.92);
-      backdrop-filter: blur(16px) saturate(150%);
-      -webkit-backdrop-filter: blur(16px) saturate(150%);
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 18px 60px rgba(0,0,0,.45);
-      border-radius:18px; overflow:hidden; display:none; z-index:110;
-      opacity:0; transform:translateY(-10px) scale(.98); transform-origin:top center;
-      transition:opacity .2s ease, transform .2s ease;
-    }
+    /* Drawer */
+    .drawer{position:fixed; top:calc(var(--nav-h) + 8px); left:12px; right:12px; background:rgba(20,20,20,.92);
+      backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border:1px solid rgba(255,255,255,.12); box-shadow:0 18px 60px rgba(0,0,0,.45); border-radius:18px;
+      overflow:hidden; display:none; z-index:110; opacity:0; transform:translateY(-10px) scale(.98); transform-origin:top center;
+      transition:opacity .2s ease, transform .2s ease;}
     .drawer.open{ display:block; opacity:1; transform:translateY(0) scale(1) }
-    .drawer a{
-      display:block; color:#fff; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08);
-    }
+    .drawer a{display:block; color:#fff; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08);}
     .drawer a:last-child{ border-bottom:0 }
     .drawer a:hover{ background:rgba(255,255,255,.06); color:var(--blush) }
 
     /* Hero */
-    .hero{padding-top:0;position:relative} /* top padding handled by body now */
+    .hero{padding-top:0;position:relative}
     .hero__wrap{max-width:var(--max);margin:0 auto;border-radius:var(--radius);overflow:hidden}
     .hero__img{position:relative;height:88vh;min-height:640px;background:#000 url('HERO.PNG') center/cover no-repeat}
     .hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.70))}
     .hero__copy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
     .hero__inner{max-width:760px}
-    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;font-size:clamp(34px,6.2vw,68px);margin:0 0 10px;color:#fff;
-           text-shadow:0 2px 18px rgba(0,0,0,.45)}
+    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;font-size:clamp(34px,6.2vw,68px);margin:0 0 10px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45)}
     .sub{color:#eee;font-size:clamp(15px,2.2vw,20px);text-shadow:0 1px 12px rgba(0,0,0,.35)}
     .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .btn{display:inline-block;padding:14px 22px;border-radius:999px;border:0;font-weight:700;cursor:pointer;transition:transform .2s ease,opacity .2s ease, box-shadow .2s ease}
@@ -118,33 +95,20 @@
     .card:hover{border-color:rgba(238,183,201,.55)}
     .thumb{height:200px;border-radius:12px;background:#0f0f0f center/cover no-repeat;margin-bottom:12px}
 
-    /* Luxury form controls (no more white boxes) */
+    /* Form controls */
     input, select, textarea{
-      width:100%;
-      background:#111;
-      color:#fff;
-      border:1px solid #2a2a2a;
-      border-radius:12px;
-      padding:14px;
-      font-size:15px;
-      outline:none;
-      transition:border-color .2s, box-shadow .2s;
-      -webkit-appearance:none; appearance:none;
+      width:100%; background:#111; color:#fff; border:1px solid #2a2a2a; border-radius:12px; padding:14px;
+      font-size:15px; outline:none; transition:border-color .2s, box-shadow .2s; -webkit-appearance:none; appearance:none;
     }
     input::placeholder, textarea::placeholder{ color:#999 }
     select{ background-color:#111; color:#fff; }
-    /* custom dropdown chevron */
     select{
       background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M5.5 7.5l4.5 4.5 4.5-4.5'/%3E%3C/svg%3E");
-      background-repeat:no-repeat; background-position:right 12px center; background-size:16px;
-      padding-right:38px;
+      background-repeat:no-repeat; background-position:right 12px center; background-size:16px; padding-right:38px;
     }
-    input:focus, select:focus, textarea:focus{
-      border-color:var(--blush);
-      box-shadow:0 0 0 3px rgba(238,183,201,.25);
-    }
+    input:focus, select:focus, textarea:focus{ border-color:var(--blush); box-shadow:0 0 0 3px rgba(238,183,201,.25) }
 
-    /* Testimonials — smooth horizontal snap */
+    /* Testimonials */
     .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
     .snap::-webkit-scrollbar{height:6px}.snap::-webkit-scrollbar-thumb{background:#222;border-radius:999px}
     .quote{min-width:360px;max-width:420px;scroll-snap-align:start}
@@ -159,7 +123,7 @@
   </style>
 </head>
 <body>
-  <!-- TOP BAR (glossy) -->
+  <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar__inner">
       <div class="brand">Luma Aesthetics</div>
@@ -171,7 +135,7 @@
       <button class="burger" id="burger" aria-label="Open menu"><span></span></button>
     </div>
   </div>
-  <!-- Drawer moved OUTSIDE the topbar -->
+  <!-- Drawer -->
   <nav class="drawer" id="drawer">
     <a href="#services">Treatments</a>
     <a href="#testimonials">Testimonials</a>
@@ -188,7 +152,7 @@
             <h1 class="title">Where Luxury Meets Skin</h1>
             <p class="sub">Experience cutting-edge beauty treatments tailored to you.</p>
             <div class="cta">
-              <a class="btn btn--blush" href="book.html">Book Now</a>
+              <a class="btn btn--blush" href="#book">Book Now</a>
               <a class="btn btn--ghost" href="#services">Explore Treatments</a>
             </div>
           </div>
@@ -204,19 +168,19 @@
       <h2>Curated Care, Crafted for Results</h2>
 
       <div class="grid grid--3" style="margin-top:18px">
-        <a class="card" href="book.html">
+        <a class="card" href="#book">
           <div class="thumb" style="background-image:url('botox.PNG')"></div>
           <h3 style="margin:6px 0 4px">Botox & Fillers</h3>
           <p class="small">Targeted smoothing and subtle volume for a youthful glow.</p>
         </a>
 
-        <a class="card" href="book.html">
+        <a class="card" href="#book">
           <div class="thumb" style="background-image:url('laser.PNG')"></div>
           <h3 style="margin:6px 0 4px">Laser Hair Removal</h3>
           <p class="small">Long-term reduction with minimal downtime.</p>
         </a>
 
-        <a class="card" href="book.html">
+        <a class="card" href="#book">
           <div class="thumb" style="background-image:url('facials.PNG')"></div>
           <h3 style="margin:6px 0 4px">Facials & Skincare</h3>
           <p class="small">Clinically-designed facials for clarity, tone, and texture.</p>
@@ -257,12 +221,12 @@
       <h2>Reserve Your Visit</h2>
 
       <div class="grid grid--2" style="margin-top:18px">
-        <!-- FORM -->
+        <!-- FORM (wired to Apps Script) -->
         <div class="card">
           <form id="bookingForm" class="form" style="display:grid;gap:14px">
             <div class="grid grid--2" style="gap:14px">
               <input name="name" placeholder="Full Name" required/>
-              <input name="phone" placeholder="Phone" required/>
+              <input name="phone" placeholder="Phone" inputmode="tel" required/>
             </div>
             <div class="grid grid--2" style="gap:14px">
               <input type="email" name="email" placeholder="Email" required/>
@@ -274,13 +238,16 @@
               </select>
             </div>
             <div class="grid grid--2" style="gap:14px">
+              <!-- names kept as date/time; JS maps to preferred_date/preferred_time -->
               <input type="date" name="date" required/>
               <input type="time" name="time" required/>
             </div>
-            <textarea rows="4" name="notes" placeholder="Notes (optional)"></textarea>
+            <!-- notes kept generic (HIPAA-aware) -->
+            <textarea rows="4" name="notes" placeholder="Notes (please do not include medical details)"></textarea>
             <button class="btn btn--blush" type="submit">Submit Request</button>
             <div id="formMsg" class="small muted"></div>
           </form>
+          <p class="small" style="color:#a8a8a8;margin-top:8px">⚠️ Please don’t share medical details here. We’ll confirm by phone/text.</p>
         </div>
 
         <!-- IMAGE / PLACEHOLDER PANEL -->
@@ -313,46 +280,65 @@
       </div>
       <div>
         <div class="kicker">Explore</div>
-        <p class="small"><a href="#services">Treatments</a> • <a href="#testimonials">Reviews</a> • <a href="book.html">Book</a></p>
+        <p class="small"><a href="#services">Treatments</a> • <a href="#testimonials">Reviews</a> • <a href="#book">Book</a></p>
       </div>
     </div>
   </footer>
 
   <script>
-    // ===== Glossy nav burger / drawer (REPLACED) =====
+    // Burger / drawer
     const burger = document.getElementById('burger');
     const drawer = document.getElementById('drawer');
     const drawerLinks = drawer.querySelectorAll('a');
-
-    burger?.addEventListener('click', ()=> {
-      drawer.classList.toggle('open');
-    });
+    burger?.addEventListener('click', ()=> drawer.classList.toggle('open'));
     drawerLinks.forEach(a => a.addEventListener('click', ()=> drawer.classList.remove('open')));
     window.addEventListener('scroll', ()=> drawer.classList.remove('open'));
     const mql = window.matchMedia('(max-width: 960px)');
     function syncMenus(e){ if(!e.matches){ drawer.classList.remove('open'); } }
     syncMenus(mql); mql.addEventListener('change', syncMenus);
 
-    // Booking submit — plug your PILOT webhook here
+    // ===== Lead submit → Google Apps Script endpoint =====
     document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
+      const form = e.target;
+      const msg  = document.getElementById('formMsg');
+
+      // Grab form data
+      const raw = Object.fromEntries(new FormData(form).entries());
+
+      // Map our field names to backend keys the Sheet/script expects
+      const payload = {
+        source: "website-form",
+        name: raw.name || "",
+        phone: raw.phone || "",
+        email: raw.email || "",
+        service: raw.service || "",
+        message: raw.notes || "",                 // generic notes only
+        preferred_date: raw.date || "",           // map date → preferred_date
+        preferred_time: raw.time || "",           // map time → preferred_time
+        page_url: location.href,
+        utm_source: new URLSearchParams(location.search).get('utm_source') || "",
+        utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || ""
+      };
+
+      msg.textContent = "Sending…";
       try{
-        // Replace with your Make/Tidio webhook URL:
-        // const res = await fetch('https://YOUR_WEBHOOK_URL', {
-        //   method:'POST',
-        //   headers:{'Content-Type':'application/json'},
-        //   body: JSON.stringify({...data, source:'Luma-Homepage', ts:new Date().toISOString()})
-        // });
-        document.getElementById('formMsg').textContent = "Request received — we’ll confirm shortly.";
-        e.target.reset();
+        const res = await fetch(window.PILOT_ENDPOINT, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const j = await res.json();
+        if (j.ok){
+          msg.textContent = "✅ Request received — we’ll confirm shortly.";
+          form.reset();
+        } else {
+          msg.textContent = "⚠️ Error submitting. Please try again or call us.";
+        }
       }catch(err){
-        document.getElementById('formMsg').textContent = "Something went wrong. Please try again.";
+        msg.textContent = "⚠️ Network error. Please try again.";
       }
     });
-
-    // OPTIONAL: make the form full width (until you upload STUDIO.PNG)
-    // document.querySelector('#book .grid').firstElementChild.style.gridColumn = '1 / -1';
   </script>
 </body>
 </html>
