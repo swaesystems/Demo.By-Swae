@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Endpoint -->
+  <!-- Endpoint (kept for form + webhooks) -->
   <script>
     window.PILOT_ENDPOINT = "https://script.google.com/macros/s/AKfycbxo6ydLwrbog8qmDbgxlnkgm29WAOTqW8hvlajqkX-qNiQXgOqj_KYIPN_YhSbeacOz1w/exec";
   </script>
@@ -197,11 +197,13 @@
   </footer>
 
   <script>
+    // Mobile nav
     const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
     burger?.addEventListener('click',()=>drawer.classList.toggle('open'));
     drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
     window.addEventListener('scroll',()=>drawer.classList.remove('open'));
 
+    // Booking form -> Apps Script endpoint
     document.getElementById('bookingForm').addEventListener('submit',async e=>{
       e.preventDefault();
       const form=e.target,msg=document.getElementById('formMsg');
@@ -219,7 +221,26 @@
     });
   </script>
 
-  <!-- Tidio Chat Widget -->
-  <script src="//code.tidio.co/tqbtyrqcxle2l6evqxn8r6lokstpvkpx.js" async></script>
+  <!-- Botpress WebChat (human-like closer) -->
+  <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      botId: "YOUR_BOTPRESS_BOT_ID",
+      clientId: "YOUR_BOTPRESS_CLIENT_ID",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
+      messagingUrl: "https://messaging.botpress.cloud",
+      composerPlaceholder: "Ask me about Botox, Laser, or Facials…",
+      botName: "Luma Assistant",
+      avatarUrl: "bot-avatar.png", // optional: use your logo
+      showCloseButton: true,
+      enableTranscriptDownload: false,
+      themeColor: "#eeb7c9",
+      useSessionStorage: true
+    });
+
+    // Optional: pass page context into bot (helps with analytics/intent)
+    window.botpressWebChat.onEvent(function(){}, ["LIFECYCLE.LOADED"]);
+  </script>
+  <!-- (Tidio removed by request) -->
 </body>
 </html>
