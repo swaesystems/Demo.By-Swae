@@ -221,26 +221,30 @@
     });
   </script>
 
-  <!-- Botpress WebChat (human-like closer) -->
-  <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+  <!-- Botpress WebChat v3.3 (new) -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
   <script>
     window.botpressWebChat.init({
-      botId: "YOUR_BOTPRESS_BOT_ID",
-      clientId: "YOUR_BOTPRESS_CLIENT_ID",
-      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
-      messagingUrl: "https://messaging.botpress.cloud",
-      composerPlaceholder: "Ask me about Botox, Laser, or Facials…",
-      botName: "Luma Assistant",
-      avatarUrl: "bot-avatar.png", // optional: use your logo
-      showCloseButton: true,
-      enableTranscriptDownload: false,
-      themeColor: "#eeb7c9",
-      useSessionStorage: true
-    });
+      // your shareable config
+      configUrl: "https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json",
 
-    // Optional: pass page context into bot (helps with analytics/intent)
-    window.botpressWebChat.onEvent(function(){}, ["LIFECYCLE.LOADED"]);
+      // match Luma black + pink (no gold)
+      extraStylesheet: `
+        .bpw-launcher { background:#FF4FA0 !important; box-shadow:0 4px 12px rgba(0,0,0,.35); }
+        .bpw-header { background:#000; color:#FF4FA0; border-bottom:2px solid #FF4FA0; }
+        .bpw-bot-message { background:#111; color:#f5f5f5; border-radius:14px; }
+        .bpw-user-message { background:#FF4FA0; color:#fff; border-radius:14px; }
+        .bpw-composer { background:#0d0d0d; border:1px solid #333; }
+        .bpw-composer textarea, .bpw-composer input { color:#fff; }
+        .bpw-conversation-description { color:#FF4FA0; }
+        .bpw-from-bot .bpw-timestamp, .bpw-from-user .bpw-timestamp { color:#bfbfbf; }
+      `,
+
+      composerPlaceholder: "Text what you need — I’ll handle it ✨",
+      botConversationDescription: "Luma Aesthetics • Luxury Concierge",
+      showCloseButton: true
+    });
   </script>
-  <!-- (Tidio removed by request) -->
+  <!-- (old v0 webchat removed) -->
 </body>
 </html>
