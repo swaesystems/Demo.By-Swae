@@ -221,87 +221,52 @@
     });
   </script>
 
- <!-- Chat Bubble Trigger with Label -->
+ <!-- Chat Bubble Trigger with Bilingual Label -->
 <div id="chat-wrapper">
-  <div id="chat-label">✨ Click to chat!</div>
+  <div id="chat-label">💬 Click to chat — <strong>Hablamos español</strong></div>
   <div id="chat-bubble">
-    <img src="l-logo.PNG" alt="Luma Concierge" />
+    <img src="L-logo.png" alt="Luma Concierge" />
   </div>
 </div>
 
-<!-- Chat Iframe (popup) -->
 <iframe
   id="chat-frame"
-  src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json"
-></iframe>
+  class="chat-frame"
+  src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json">
+</iframe>
 
 <style>
-  /* Wrapper so label sits above bubble */
-  #chat-wrapper {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    z-index: 9999;
-  }
-
-  /* Label above bubble */
+  #chat-wrapper { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; align-items:flex-end; z-index:9999; }
   #chat-label {
-    background: #fff;
-    color: #111;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 12px;
-    margin-bottom: 8px;
-    box-shadow: 0 4px 14px rgba(0,0,0,.15);
-    animation: fadeIn 0.8s ease;
+    background:#fff; color:#111; font-size:14px; font-weight:600;
+    padding:6px 12px; border-radius:12px; margin-bottom:8px;
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
   }
-
-  /* Bubble */
   #chat-bubble {
-    width: 64px;
-    height: 64px;
-    background: #eeb7c9; /* blush pink */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-    transition: all 0.2s ease;
+    width:64px; height:64px; background:#FF4FA0; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    box-shadow:0 6px 18px rgba(0,0,0,.4); transition:transform .2s ease;
   }
-  #chat-bubble img {
-    width: 34px;
-    height: 34px;
-  }
-  #chat-bubble:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  }
-
-  /* Iframe (hidden until bubble click) */
-  #chat-frame {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 360px;
-    height: 520px;
-    border: 0;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.5);
-    display: none;
-    z-index: 10000;
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(6px);}
-    to {opacity: 1; transform: translateY(0);}
+  #chat-bubble img { width:34px; height:34px; }
+  #chat-bubble:hover { transform:scale(1.08); }
+  .chat-frame {
+    position:fixed; bottom:90px; right:20px; width:360px; height:520px;
+    border:0; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.5);
+    display:none; z-index:10000; background:#000;
   }
 </style>
 
+<script>
+  const bubble = document.getElementById("chat-bubble");
+  const frame  = document.getElementById("chat-frame");
+  const label  = document.getElementById("chat-label");
+  let open = false;
+  bubble.addEventListener("click", () => {
+    open = !open;
+    frame.style.display = open ? "block" : "none";
+    label.style.display = open ? "none" : "block";
+  });
+</script>
 <script>
   const bubble = document.getElementById("chat-bubble");
   const frame = document.getElementById("chat-frame");
