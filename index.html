@@ -221,31 +221,54 @@
     });
   </script>
 
- <!-- Botpress WebChat v3.3 (bubble) -->
-<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+ <!-- Botpress WebChat (iframe styled as bubble) -->
+<style>
+  .chat-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FF4FA0 url('chat-icon.png') center/28px no-repeat;
+    box-shadow: 0 6px 20px rgba(0,0,0,.45);
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform .2s ease;
+  }
+  .chat-launcher:hover { transform: scale(1.05); }
+
+  .chat-frame {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 380px;
+    height: 560px;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    display: none;
+    z-index: 9999;
+  }
+</style>
+
+<div class="chat-launcher" id="chatLauncher"></div>
+<iframe
+  id="chatFrame"
+  class="chat-frame"
+  src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json">
+</iframe>
+
 <script>
-  window.addEventListener("load", () => {
-    if (window.botpressWebChat) {
-      window.botpressWebChat.init({
-        configUrl: "https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json",
-        composerPlaceholder: "Text what you need — I’ll handle it ✨",
-        botConversationDescription: "Luma Aesthetics • Luxury Concierge",
-        showCloseButton: true,
-        extraStylesheet: `
-          .bpw-launcher { background:#FF4FA0 !important; box-shadow:0 4px 12px rgba(0,0,0,.35); }
-          .bpw-header { background:#000; color:#FF4FA0; border-bottom:2px solid #FF4FA0; }
-          .bpw-bot-message { background:#111; color:#f5f5f5; border-radius:14px; }
-          .bpw-user-message { background:#FF4FA0; color:#fff; border-radius:14px; }
-          .bpw-composer { background:#0d0d0d; border:1px solid #333; }
-          .bpw-composer textarea, .bpw-composer input { color:#fff; }
-          .bpw-conversation-description { color:#FF4FA0; }
-        `
-      });
-    } else {
-      console.error("Botpress WebChat not loaded");
-    }
+  const launcher = document.getElementById('chatLauncher');
+  const frame = document.getElementById('chatFrame');
+  let open = false;
+
+  launcher.addEventListener('click', () => {
+    open = !open;
+    frame.style.display = open ? 'block' : 'none';
   });
-</script> 
+</script>
   <!-- (old v0 webchat removed) -->
 </body>
 </html>
