@@ -221,12 +221,11 @@
     });
   </script>
 
-  <!-- Botpress WebChat v3.3 (Luma bubble) -->
+ <!-- Botpress WebChat v3.3 (bubble) -->
 <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
 <script>
-  (function () {
-    function init() {
-      if (!window.botpressWebChat) return setTimeout(init, 100);
+  window.addEventListener("load", () => {
+    if (window.botpressWebChat) {
       window.botpressWebChat.init({
         configUrl: "https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json",
         composerPlaceholder: "Text what you need — I’ll handle it ✨",
@@ -240,14 +239,13 @@
           .bpw-composer { background:#0d0d0d; border:1px solid #333; }
           .bpw-composer textarea, .bpw-composer input { color:#fff; }
           .bpw-conversation-description { color:#FF4FA0; }
-          .bpw-from-bot .bpw-timestamp, .bpw-from-user .bpw-timestamp { color:#bfbfbf; }
         `
       });
+    } else {
+      console.error("Botpress WebChat not loaded");
     }
-    if (document.readyState === 'complete') init();
-    else window.addEventListener('load', init);
-  })();
-</script>
+  });
+</script> 
   <!-- (old v0 webchat removed) -->
 </body>
 </html>
