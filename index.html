@@ -221,13 +221,33 @@
     });
   </script>
 
-  <!-- Botpress WebChat (direct iframe embed) -->
-<iframe
-  src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json"
-  style="position:fixed;bottom:20px;right:20px;width:380px;height:560px;
-         border:0;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);
-         z-index:9999;background:#000">
-</iframe>
+  <!-- Botpress WebChat v3.3 (Luma bubble) -->
+<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+<script>
+  (function () {
+    function init() {
+      if (!window.botpressWebChat) return setTimeout(init, 100);
+      window.botpressWebChat.init({
+        configUrl: "https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json",
+        composerPlaceholder: "Text what you need — I’ll handle it ✨",
+        botConversationDescription: "Luma Aesthetics • Luxury Concierge",
+        showCloseButton: true,
+        extraStylesheet: `
+          .bpw-launcher { background:#FF4FA0 !important; box-shadow:0 4px 12px rgba(0,0,0,.35); }
+          .bpw-header { background:#000; color:#FF4FA0; border-bottom:2px solid #FF4FA0; }
+          .bpw-bot-message { background:#111; color:#f5f5f5; border-radius:14px; }
+          .bpw-user-message { background:#FF4FA0; color:#fff; border-radius:14px; }
+          .bpw-composer { background:#0d0d0d; border:1px solid #333; }
+          .bpw-composer textarea, .bpw-composer input { color:#fff; }
+          .bpw-conversation-description { color:#FF4FA0; }
+          .bpw-from-bot .bpw-timestamp, .bpw-from-user .bpw-timestamp { color:#bfbfbf; }
+        `
+      });
+    }
+    if (document.readyState === 'complete') init();
+    else window.addEventListener('load', init);
+  })();
+</script>
   <!-- (old v0 webchat removed) -->
 </body>
 </html>
