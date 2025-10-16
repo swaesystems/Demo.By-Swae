@@ -221,63 +221,139 @@
     });
   </script>
 
- <!-- Chat Bubble Trigger with Bilingual Label -->
-<div id="chat-wrapper">
-  <div id="chat-label">💬 Click to chat — <strong>Hablamos español</strong></div>
-  <div id="chat-bubble">
-    <img src="l-logo.PNG" alt="Luma Concierge" />
+ <!-- LUXURY CHAT BUBBLE (iframe launcher) -->
+<div id="lux-chat">
+  <!-- Bubble & teaser -->
+  <div class="lux-teaser" id="luxTeaser">💬 Chat with our concierge — <b>Hablamos español</b></div>
+  <button class="lux-bubble" id="luxBubble" aria-label="Open chat">
+    <img src="L-logo.png" alt="Luma Concierge" />
+  </button>
+
+  <!-- Panel (holds the iframe) -->
+  <div class="lux-panel" id="luxPanel" aria-hidden="true" role="dialog" aria-label="Concierge chat">
+    <div class="lux-header">
+      <div class="lux-title">Luma Concierge</div>
+      <button class="lux-close" id="luxClose" aria-label="Close chat">×</button>
+    </div>
+    <iframe
+      id="luxFrame"
+      title="Luma Concierge"
+      src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    ></iframe>
   </div>
 </div>
 
-<iframe
-  id="chat-frame"
-  class="chat-frame"
-  src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json">
-</iframe>
-
 <style>
-  #chat-wrapper { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; align-items:flex-end; z-index:9999; }
-  #chat-label {
-    background:#fff; color:#111; font-size:14px; font-weight:600;
-    padding:6px 12px; border-radius:12px; margin-bottom:8px;
-    box-shadow:0 4px 14px rgba(0,0,0,.15);
+  :root{
+    --lux-pink:#FF4FA0;     /* primary blush/pink */
+    --lux-pink-2:#eeb7c9;   /* soft blush accents */
+    --lux-ink:#0c0c0c;      /* near black */
+    --lux-ui:#111;          /* panel bg */
+    --lux-text:#fff;
   }
-  #chat-bubble {
-    width:64px; height:64px; background:#FF4FA0; border-radius:50%;
-    display:flex; align-items:center; justify-content:center; cursor:pointer;
-    box-shadow:0 6px 18px rgba(0,0,0,.4); transition:transform .2s ease;
+  #lux-chat{ position:fixed; right:20px; bottom:20px; z-index:9999;
+             display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+
+  /* Teaser above bubble */
+  .lux-teaser{
+    background:#fff; color:#111; font:600 14px/1.2 Inter,system-ui;
+    padding:7px 12px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.18);
+    opacity:0; transform:translateY(6px); pointer-events:none; transition:.35s ease;
   }
-  #chat-bubble img { width:34px; height:34px; }
-  #chat-bubble:hover { transform:scale(1.08); }
-  .chat-frame {
-    position:fixed; bottom:90px; right:20px; width:360px; height:520px;
-    border:0; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.5);
-    display:none; z-index:10000; background:#000;
+  .lux-teaser.show{ opacity:1; transform:translateY(0); }
+
+  /* Circle bubble button */
+  .lux-bubble{
+    width:64px; height:64px; border-radius:50%; border:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; background:var(--lux-pink);
+    box-shadow:0 10px 28px rgba(0,0,0,.45); transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .lux-bubble:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.5); }
+  .lux-bubble img{ width:32px; height:32px; display:block; }
+
+  /* Panel that expands from bubble */
+  .lux-panel{
+    position:fixed; right:20px; bottom:100px; width:380px; height:560px;
+    background:linear-gradient(180deg,#141414,#0f0f0f); color:var(--lux-text);
+    border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 50px rgba(0,0,0,.55);
+    transform:scale(.96) translateY(8px); opacity:0; pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .lux-panel.open{ opacity:1; transform:scale(1) translateY(0); pointer-events:auto; }
+
+  .lux-header{
+    height:48px; display:flex; align-items:center; justify-content:space-between;
+    padding:0 12px; background:#111; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .lux-title{ font:600 14px/1 Inter,system-ui; letter-spacing:.02em }
+  .lux-close{ width:36px; height:36px; border-radius:10px; background:#1a1a1a; color:#fff;
+              border:1px solid rgba(255,255,255,.12); cursor:pointer; font-size:20px; line-height:1; }
+  .lux-close:hover{ background:#222; }
+
+  #luxFrame{ width:100%; height:calc(100% - 48px); border:0; background:#000; }
+
+  /* Mobile sizes */
+  @media (max-width: 520px){
+    .lux-panel{ right:12px; bottom:90px; width:92vw; height:74vh; border-radius:16px; }
+    .lux-bubble{ width:58px; height:58px; }
+    #lux-chat{ right:12px; bottom:14px; }
+  }
+
+  /* Fade bubble while scrolling (luxury feel) */
+  .lux-hidden{ opacity:.25; transition:opacity .25s ease; }
+  .lux-hidden:hover{ opacity:1; }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .lux-panel, .lux-teaser{ transition:none; }
+    .lux-bubble{ transition:none; }
   }
 </style>
 
 <script>
-  const bubble = document.getElementById("chat-bubble");
-  const frame  = document.getElementById("chat-frame");
-  const label  = document.getElementById("chat-label");
-  let open = false;
-  bubble.addEventListener("click", () => {
-    open = !open;
-    frame.style.display = open ? "block" : "none";
-    label.style.display = open ? "none" : "block";
-  });
-</script>
-<script>
-  const bubble = document.getElementById("chat-bubble");
-  const frame = document.getElementById("chat-frame");
-  const label = document.getElementById("chat-label");
-  let open = false;
+  (function(){
+    const bubble = document.getElementById('luxBubble');
+    const panel  = document.getElementById('luxPanel');
+    const close  = document.getElementById('luxClose');
+    const teaser = document.getElementById('luxTeaser');
+    const chat   = document.getElementById('lux-chat');
+    let open = false;
 
-  bubble.addEventListener("click", () => {
-    open = !open;
-    frame.style.display = open ? "block" : "none";
-    label.style.display = open ? "none" : "block"; // hide label once chat is open
-  });
+    // Show teaser briefly on load
+    setTimeout(()=>teaser.classList.add('show'), 600);
+    setTimeout(()=>teaser.classList.remove('show'), 4600);
+
+    function toggle(openNow){
+      open = (openNow != null) ? openNow : !open;
+      panel.classList.toggle('open', open);
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open) teaser.classList.remove('show');
+    }
+    bubble.addEventListener('click', ()=>toggle());
+    close.addEventListener('click', ()=>toggle(false));
+
+    // Close when clicking outside panel (but not on bubble)
+    document.addEventListener('click', (e)=>{
+      if (!open) return;
+      const within = panel.contains(e.target) || bubble.contains(e.target) || chat.contains(e.target);
+      if (!within) toggle(false);
+    });
+    // ESC to close
+    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') toggle(false); });
+
+    // Fade bubble while scrolling down; show when idle/up
+    let lastY = window.scrollY, hideTimer;
+    window.addEventListener('scroll', ()=>{
+      const down = window.scrollY > lastY;
+      lastY = window.scrollY;
+      bubble.classList.toggle('lux-hidden', down);
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(()=>bubble.classList.remove('lux-hidden'), 350);
+    }, {passive:true});
+  })();
 </script>
   <!-- (old v0 webchat removed) -->
 </body>
