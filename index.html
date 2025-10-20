@@ -1,360 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Luma Aesthetics — Where Luxury Meets Skin</title>
-  <meta name="description" content="Experience cutting-edge beauty treatments tailored to you. Seamless booking, luxury experience."/>
-  <meta name="format-detection" content="telephone=no,email=no,address=no"/>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Luma Aesthetics — Luxury Med Spa"/>
-  <meta property="og:description" content="Concierge-grade treatments with seamless booking."/>
-  <meta property="og:image" content="hero.PNG"/>
-  <meta property="og:type" content="website"/>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Endpoint (kept for form + webhooks) -->
-  <script>
-    window.PILOT_ENDPOINT = "https://script.google.com/macros/s/AKfycbxo6ydLwrbog8qmDbgxlnkgm29WAOTqW8hvlajqkX-qNiQXgOqj_KYIPN_YhSbeacOz1w/exec";
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Under Construction</title>
   <style>
-    :root{--white:#ffffff;--ink:#111;--muted:#6b6b6b;--bg:#000;--panel:#0f0f0f;
-      --blush:#eeb7c9;--blush-dark:#d596aa;--max:1100px;--radius:16px;--nav-h:68px}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);
-      background:linear-gradient(180deg,rgba(10,10,10,.85),rgba(10,10,10,.65));
-      backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
-      border-bottom:1px solid rgba(255,255,255,.08)}
-    .topbar__inner{max-width:var(--max);margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
-    .brand{font-family:"Playfair Display",serif;font-size:24px;letter-spacing:.04em}
-    .links{display:flex;gap:24px;align-items:center}
-    .links a{padding:8px 12px;border-radius:12px;border:1px solid transparent;transition:.2s}
-    .links a:hover{background:rgba(255,255,255,.08);color:var(--blush);border-color:rgba(255,255,255,.12)}
-    .burger{display:none;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);align-items:center;justify-content:center}
-    .burger span{width:18px;height:2px;background:#fff;position:relative;display:block}
-    .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff}
-    .burger span::before{top:-6px}.burger span::after{top:6px}
-    @media (max-width:960px){.links{display:none}.burger{display:flex}}
-    body{padding-top:var(--nav-h)}
-    .drawer{position:fixed;top:calc(var(--nav-h) + 8px);left:12px;right:12px;background:rgba(20,20,20,.92);
-      backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
-      border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 60px rgba(0,0,0,.45);
-      border-radius:18px;overflow:hidden;display:none;z-index:110;opacity:0;transform:translateY(-10px) scale(.98);transition:.2s}
-    .drawer.open{display:block;opacity:1;transform:translateY(0) scale(1)}
-    .drawer a{display:block;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .drawer a:last-child{border-bottom:0}
-    .drawer a:hover{background:rgba(255,255,255,.06);color:var(--blush)}
-    .hero{padding-top:0;position:relative}
-    .hero__wrap{max-width:var(--max);margin:0 auto;border-radius:var(--radius);overflow:hidden}
-    .hero__img{position:relative;height:88vh;min-height:640px;background:#000 url('HERO.PNG') center/cover no-repeat}
-    .hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.70))}
-    .hero__copy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
-    .hero__inner{max-width:760px}
-    .title{font-family:"Playfair Display",serif;font-weight:700;line-height:1.04;font-size:clamp(34px,6.2vw,68px);margin:0 0 10px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
-    .sub{color:#eee;font-size:clamp(15px,2.2vw,20px);text-shadow:0 1px 12px rgba(0,0,0,.35)}
-    .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{display:inline-block;padding:14px 22px;border-radius:999px;border:0;font-weight:700;cursor:pointer;transition:.2s}
-    .btn--blush{background:var(--blush);color:#111;box-shadow:0 10px 28px rgba(238,183,201,.25)}
-    .btn--blush:hover,.btn--ghost:hover{transform:translateY(-2px)}
-    .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
-    section{padding:80px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .kicker{letter-spacing:.22em;text-transform:uppercase;color:var(--blush);font-size:.8rem;font-weight:700}
-    h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.2vw,42px);margin:8px 0 10px}
-    p{color:#e8e8e8}
-    .grid{display:grid;gap:18px}
-    .grid--3{grid-template-columns:repeat(3,1fr)}
-    .grid--2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:900px){.grid--3,.grid--2{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,#121212,#0e0e0e);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px;transition:border-color .2s}
-    .card:hover{border-color:rgba(238,183,201,.55)}
-    .thumb{height:200px;border-radius:12px;background:#0f0f0f center/cover no-repeat;margin-bottom:12px}
-    input,select,textarea{width:100%;background:#111;color:#fff;border:1px solid #2a2a2a;border-radius:12px;padding:14px;font-size:15px;outline:none;transition:.2s}
-    input::placeholder,textarea::placeholder{color:#999}
-    select{background-color:#111;color:#fff;background-image:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M5.5 7.5l4.5 4.5 4.5-4.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:38px}
-    input:focus,select:focus,textarea:focus{border-color:var(--blush);box-shadow:0 0 0 3px rgba(238,183,201,.25)}
-    .snap{display:grid;grid-auto-flow:column;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scroll-behavior:smooth}
-    .snap::-webkit-scrollbar{height:6px}.snap::-webkit-scrollbar-thumb{background:#222;border-radius:999px}
-    .quote{min-width:360px;max-width:420px;scroll-snap-align:start}
-    .stars{color:var(--blush);letter-spacing:2px}
-    footer{padding:70px 0}.foot{display:grid;gap:18px;grid-template-columns:2fr 1fr 1fr}
-    @media(max-width:900px){.foot{grid-template-columns:1fr}}
-    .small{color:#bfbfbf;font-size:13px}.muted{color:#999}
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      font-family: "Helvetica Neue", sans-serif;
+      color: #f1f1f1;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: gold;
+      letter-spacing: 2px;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #c0c0c0;
+    }
+    .glow {
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 
+                   0 0 30px rgba(255, 215, 0, 0.5);
+    }
+    .fade-in {
+      animation: fadeIn 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar__inner">
-      <div class="brand">Luma Aesthetics</div>
-      <nav class="links">
-        <a href="#services">Treatments</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#book">Book</a>
-      </nav>
-      <button class="burger" id="burger" aria-label="Open menu"><span></span></button>
-    </div>
+  <div>
+    <h1 class="glow fade-in">🚧 Site Under Construction 🚧</h1>
+    <p>A new luxurious experience is coming soon.</p>
   </div>
-  <nav class="drawer" id="drawer">
-    <a href="#services">Treatments</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#book">Book</a>
-  </nav>
-
-  <header class="hero">
-    <div class="hero__wrap">
-      <div class="hero__img">
-        <div class="hero__veil"></div>
-        <div class="hero__copy">
-          <div class="hero__inner">
-            <h1 class="title">Where Luxury Meets Skin</h1>
-            <p class="sub">Experience cutting-edge beauty treatments tailored to you.</p>
-            <div class="cta">
-              <a class="btn btn--blush" href="#book">Book Now</a>
-              <a class="btn btn--ghost" href="#services">Explore Treatments</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section id="services">
-    <div class="container">
-      <div class="kicker">Treatments</div>
-      <h2>Curated Care, Crafted for Results</h2>
-      <div class="grid grid--3" style="margin-top:18px">
-        <a class="card" href="#book">
-          <div class="thumb" style="background-image:url('botox.PNG')"></div>
-          <h3>Botox & Fillers</h3>
-          <p class="small">Targeted smoothing and subtle volume for a youthful glow.</p>
-        </a>
-        <a class="card" href="#book">
-          <div class="thumb" style="background-image:url('laser.PNG')"></div>
-          <h3>Laser Hair Removal</h3>
-          <p class="small">Long-term reduction with minimal downtime.</p>
-        </a>
-        <a class="card" href="#book">
-          <div class="thumb" style="background-image:url('facials.PNG')"></div>
-          <h3>Facials & Skincare</h3>
-          <p class="small">Clinically-designed facials for clarity, tone, and texture.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimonials">
-    <div class="container">
-      <div class="kicker">Testimonials</div>
-      <h2>Five-Star Experiences</h2>
-      <div class="snap">
-        <div class="card quote"><div class="stars">★★★★★</div><p>“I booked at midnight and got confirmed first thing. Luma is elite.”</p><p class="small">— A.M.</p></div>
-        <div class="card quote"><div class="stars">★★★★★</div><p>“Luxury vibe, zero pressure, results on point. I’m obsessed.”</p><p class="small">— K.R.</p></div>
-        <div class="card quote"><div class="stars">★★★★★</div><p>“Fast intake, stunning space, and a team that really listens.”</p><p class="small">— D.S.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="book">
-    <div class="container">
-      <div class="kicker">Book Now</div>
-      <h2>Reserve Your Visit</h2>
-      <div class="grid grid--2" style="margin-top:18px">
-        <div class="card">
-          <form id="bookingForm" style="display:grid;gap:14px">
-            <div class="grid grid--2"><input name="name" placeholder="Full Name" required/><input name="phone" placeholder="Phone" required/></div>
-            <div class="grid grid--2"><input type="email" name="email" placeholder="Email" required/><select name="service" required>
-              <option value="" disabled selected>Select Service</option>
-              <option>Botox & Fillers</option><option>Laser Hair Removal</option><option>Facials & Skincare</option>
-            </select></div>
-            <div class="grid grid--2"><input type="date" name="date" required/><input type="time" name="time" required/></div>
-            <textarea rows="4" name="notes" placeholder="Notes (optional)"></textarea>
-            <button class="btn btn--blush" type="submit">Submit Request</button>
-            <div id="formMsg" class="small muted"></div>
-          </form>
-        </div>
-        <div class="card" style="padding:0;overflow:hidden">
-          <div style="height:100%;min-height:340px;background:#0f0f0f url('studio.PNG') center/cover no-repeat;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <div><div class="kicker">Luma Aesthetics</div><h3 style="font-family:Playfair Display,serif;margin:8px 0 10px">Where luxury meets skin.</h3>
-        <p class="small">123 Rose Ave, Suite 100 • City, ST 90000<br/>Mon–Sat 9am–7pm</p></div>
-      <div><div class="kicker">Contact</div><p class="small">hello@luma.com • (000) 000-0000</p></div>
-      <div><div class="kicker">Explore</div><p class="small"><a href="#services">Treatments</a> • <a href="#testimonials">Reviews</a> • <a href="#book">Book</a></p></div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile nav
-    const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
-    burger?.addEventListener('click',()=>drawer.classList.toggle('open'));
-    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
-    window.addEventListener('scroll',()=>drawer.classList.remove('open'));
-
-    // Booking form -> Apps Script endpoint
-    document.getElementById('bookingForm').addEventListener('submit',async e=>{
-      e.preventDefault();
-      const form=e.target,msg=document.getElementById('formMsg');
-      const fd=new FormData(form);
-      fd.append('source','website-form');
-      fd.append('page_url',location.href);
-      msg.textContent="Sending…";
-      try{
-        const res=await fetch(window.PILOT_ENDPOINT,{method:'POST',body:fd});
-        const text=await res.text();
-        let ok=false;try{ok=JSON.parse(text).ok===true}catch(_){ok=/ok/i.test(text);}
-        if(ok){msg.textContent="✅ Request received — we’ll confirm shortly.";form.reset();}
-        else{msg.textContent="⚠️ Server error. Check deployment access.";console.error(text);}
-      }catch(err){msg.textContent="⚠️ Network error. Check Console.";console.error(err);}
-    });
-  </script>
-
- <!-- LUXURY CHAT BUBBLE (iframe launcher) -->
-<div id="lux-chat">
-  <!-- Bubble & teaser -->
-  <div class="lux-teaser" id="luxTeaser">💬 Chat with our concierge — <b>Hablamos español</b></div>
-  <button class="lux-bubble" id="luxBubble" aria-label="Open chat">
-    <img src="l-logo.PNG" alt="Luma Concierge" />
-  </button>
-
-  <!-- Panel (holds the iframe) -->
-  <div class="lux-panel" id="luxPanel" aria-hidden="true" role="dialog" aria-label="Concierge chat">
-    <div class="lux-header">
-      <div class="lux-title">Luma Concierge</div>
-      <button class="lux-close" id="luxClose" aria-label="Close chat">×</button>
-    </div>
-    <iframe
-      id="luxFrame"
-      title="Luma Concierge"
-      src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/17/20251009173229-URGYDLZV.json"
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    ></iframe>
-  </div>
-</div>
-
-<style>
-  :root{
-    --lux-pink:#FF4FA0;     /* primary blush/pink */
-    --lux-pink-2:#eeb7c9;   /* soft blush accents */
-    --lux-ink:#0c0c0c;      /* near black */
-    --lux-ui:#111;          /* panel bg */
-    --lux-text:#fff;
-  }
-  #lux-chat{ position:fixed; right:20px; bottom:20px; z-index:9999;
-             display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
-
-  /* Teaser above bubble */
-  .lux-teaser{
-    background:#fff; color:#111; font:600 14px/1.2 Inter,system-ui;
-    padding:7px 12px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.18);
-    opacity:0; transform:translateY(6px); pointer-events:none; transition:.35s ease;
-  }
-  .lux-teaser.show{ opacity:1; transform:translateY(0); }
-
-  /* Circle bubble button */
-  .lux-bubble{
-    width:64px; height:64px; border-radius:50%; border:0; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; background:var(--lux-pink);
-    box-shadow:0 10px 28px rgba(0,0,0,.45); transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .lux-bubble:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.5); }
-  .lux-bubble img{ width:32px; height:32px; display:block; }
-
-  /* Panel that expands from bubble */
-  .lux-panel{
-    position:fixed; right:20px; bottom:100px; width:380px; height:560px;
-    background:linear-gradient(180deg,#141414,#0f0f0f); color:var(--lux-text);
-    border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 20px 50px rgba(0,0,0,.55);
-    transform:scale(.96) translateY(8px); opacity:0; pointer-events:none;
-    transition:opacity .25s ease, transform .25s ease;
-  }
-  .lux-panel.open{ opacity:1; transform:scale(1) translateY(0); pointer-events:auto; }
-
-  .lux-header{
-    height:48px; display:flex; align-items:center; justify-content:space-between;
-    padding:0 12px; background:#111; border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .lux-title{ font:600 14px/1 Inter,system-ui; letter-spacing:.02em }
-  .lux-close{ width:36px; height:36px; border-radius:10px; background:#1a1a1a; color:#fff;
-              border:1px solid rgba(255,255,255,.12); cursor:pointer; font-size:20px; line-height:1; }
-  .lux-close:hover{ background:#222; }
-
-  #luxFrame{ width:100%; height:calc(100% - 48px); border:0; background:#000; }
-
-  /* Mobile sizes */
-  @media (max-width: 520px){
-    .lux-panel{ right:12px; bottom:90px; width:92vw; height:74vh; border-radius:16px; }
-    .lux-bubble{ width:58px; height:58px; }
-    #lux-chat{ right:12px; bottom:14px; }
-  }
-
-  /* Fade bubble while scrolling (luxury feel) */
-  .lux-hidden{ opacity:.25; transition:opacity .25s ease; }
-  .lux-hidden:hover{ opacity:1; }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .lux-panel, .lux-teaser{ transition:none; }
-    .lux-bubble{ transition:none; }
-  }
-</style>
-
-<script>
-  (function(){
-    const bubble = document.getElementById('luxBubble');
-    const panel  = document.getElementById('luxPanel');
-    const close  = document.getElementById('luxClose');
-    const teaser = document.getElementById('luxTeaser');
-    const chat   = document.getElementById('lux-chat');
-    let open = false;
-
-    // Show teaser briefly on load
-    setTimeout(()=>teaser.classList.add('show'), 600);
-    setTimeout(()=>teaser.classList.remove('show'), 4600);
-
-    function toggle(openNow){
-      open = (openNow != null) ? openNow : !open;
-      panel.classList.toggle('open', open);
-      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-      if (open) teaser.classList.remove('show');
-    }
-    bubble.addEventListener('click', ()=>toggle());
-    close.addEventListener('click', ()=>toggle(false));
-
-    // Close when clicking outside panel (but not on bubble)
-    document.addEventListener('click', (e)=>{
-      if (!open) return;
-      const within = panel.contains(e.target) || bubble.contains(e.target) || chat.contains(e.target);
-      if (!within) toggle(false);
-    });
-    // ESC to close
-    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') toggle(false); });
-
-    // Fade bubble while scrolling down; show when idle/up
-    let lastY = window.scrollY, hideTimer;
-    window.addEventListener('scroll', ()=>{
-      const down = window.scrollY > lastY;
-      lastY = window.scrollY;
-      bubble.classList.toggle('lux-hidden', down);
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(()=>bubble.classList.remove('lux-hidden'), 350);
-    }, {passive:true});
-  })();
-</script>
-  <!-- (old v0 webchat removed) -->
 </body>
 </html>
